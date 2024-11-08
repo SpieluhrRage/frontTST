@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кинофестивали</title>
+    <link rel="icon" type="image/svg+xml" href="clap.svg"> <!-- Фавиконка -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Подключение CSS -->
+</head>
+<body class ="body">
+
+    <header>
+        <div class="header-container">
+            <img src="pathwhiteleft.svg" alt="Украшение в виде киноленты" class="logo left-logo"> <!-- Логотип слева -->
+            <h1 class="great-vibes-regular">Кинофестивали</h1>
+            <img src="pathwhiteright.svg" alt="Украшение в виде киноленты" class="logo right-logo"> <!-- Логотип справа -->
+        </div>
+       <!-- <button class="burger-menu" aria-label="Открыть меню">
+            <svg width="30" height="30" xmlns="Group1.svg"></svg>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>  Меню-бургер -->
+    </header>
+        <nav>
+            
+            <p id="hiddenLogo" class="great-vibes-regular">Кинофестивали</p>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" id="bur">
+                <svg width="45" height="45" viewBox="0 0 330 250" fill="grey" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="332" height="46" rx="23" fill="#FFB700"/>
+                    <rect y="210" width="332" height="46" rx="23" fill="#FFB700"/>
+                    <rect y="105" width="332" height="46" rx="23" fill="#FFB700"/>
+                </svg>
+            </label>
+            <ul class = "menu" id="menu">
+                <input type="checkbox" id="menu-off" class="menu-off">
+                <label for="menu-off" id="chck">
+                    <svg width="45" height="45" viewBox="0 0 375 375" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="42.4451" y="0.261749" width="470" height="59.6562" rx="29.8281" transform="rotate(45 42.4451 0.261749)" fill="#FFB700"/>
+                        <rect y="332.34" width="470" height="59.6562" rx="29.8281" transform="rotate(-45 0 332.34)" fill="#FFB700"/>
+                    </svg>
+                        
+                </label>
+                <!--<li><a href="#T1">Главная</a></li> -->
+                <li><a href="#festivals">Фестивали</a></li>
+                <li><a href = "#registration">Регистрация</a></li>
+                <li><a href="#contact">Контакты</a></li>
+                <a class="icn"></a>
+            </ul>
+        </nav>
+    <!-- Основной контент -->
+    <main>
+        <!-- Секция фестивалей -->
+        <section id="festivals">
+           <!-- <h1 id="T1"><i>Кинофестивали</i></h1>-->
+            
+            <div class = "cont comforter-regular">
+                <div class = "d1" ><p>Berlinale</p></div>
+                <div class = "d1"><p>Festival de Cannes</p></div>
+                <div class = "d1"><p>Locarno</p></div>
+                <div class = "d1"><p>MFF</p></div>
+                <div class = "d1"><p>Saint Petersburg </p></div> 
+            </div>
+            
+        </section>
+
+        <!-- Секция с цитатами -->
+        <section id="quotes">
+            <h3>Главное:</h3>
+            <p>На открытии 75 Каннского Кинофестиваля <em>Венсан Линдон</em>, президент жюри, произнес пламенную речь:</p>
+            <blockquote>
+                "This question is one which all artists have been, are, and shall ever battle with. 
+                Should we use our fame, however minor, to enable the words of the voiceless to be heard, or the contrary – should we refuse
+                to publicly take a stance in fields in which we have no legitimacy or competency?
+                I do not know the answer!"
+            </blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                 Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+        </section>
+
+        <!-- Боковая панель (aside) -
+        <aside>
+            <h3>Предстоящие события</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+        </aside>-->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                 Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
+                 Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. 
+                 Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+
+
+
+        <section id="registration">
+            <h3>Регистрация на мероприятие: </h3>
+            <form action="" method="get">
+                
+                    <label for="name">Имя</label>
+                    <input type="text" name="name" id="name" required>
+                
+                
+                    <label for="surname">Фамилия</label>
+                    <input type="text" name="surname" id="surname">
+                
+                    <label for="email">Email</label>
+                    <input type = "email" name = "email" id="email" placeholder="example@domain.region" required>
+                
+                    <label for="phone">Tel.</label>
+                    <input type = "tel" name = "phone" id="phone" required>
+                
+                <fieldset >
+                    <legend>Зарегистрироваться как..</legend>
+                    <label>
+                        <input type ="radio" name="answer" value="private" required>
+                        Частное лицо
+                    </label>
+                    <label>
+                        <input type ="radio" name="answer" value="organisation" required>
+                        Организация
+                    </label>
+                </fieldset>
+                <p>
+                    <label for="time" name = "time" id = "time" >Дата посещения</label>
+                    <input type="datetime-local" name = "time" id = "time" min="2024-10-17T10:00" max="2027-01-01T10:00" required>
+                </p> 
+                <p>
+                    <label for="mailing" name = "mailing" id= "mailing">Хочу получать рассылку о новостях и персональных предложениях</label>
+                    <input type ="checkbox" name = "mailing"  id="mailing">
+                </p>
+                <p>
+                    <lavel for="wishes">Оставьте свои пожелания: </lavel>
+                    <textarea id="wishes" name ="wishes" rows="7" cols="35"></textarea>
+                </p>
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </section>
+        <!-- Секция с изображениями -
+        <section>
+            <h3>Изображения:</h3>
+            <p>
+                <a href="https://www.festival-cannes.com/en/" target="_blank">
+                    <img src="Festival_de_Cannes_logo.png" width="234" height="117" alt="Каннский фестиваль">
+                </a>
+            </p>
+            <img src="ma.jpg" usemap="#festival-map" alt="Карта кинофестивалей" width="400" height="476">
+            <map name="festival-map">
+                <area shape="poly" coords="150 ,335, 135, 355, 165, 355" href="https://www.festival-cannes.com/en/" alt="Каннский фестиваль">
+                <area shape="rect" coords="195, 310, 210, 325" href="https://www.labiennale.org/en/cinema" alt="Венецианский фестиваль">
+                <area shape="circle" coords="345,185,20" href="https://www.moscowfilmfestival.ru/" alt="Московский кинофестиваль">
+            </map>
+        </section>-->
+        <section>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92551.58059321831!2d6.926878104122477!3d43.53910358803882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ce8180530cffff%3A0x40819a5fd979e20!2z0JrQsNC90L3Riywg0KTRgNCw0L3RhtC40Y8!5e0!3m2!1sru!2sru!4v1728898099022!5m2!1sru!2sru" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+        <section>
+            <video controls width="250" loop muted>
+                <source src="herbst_version2.mp4" type="video/mp4">
+                Что-то пошло не так. Попробуйте обновить страницу
+
+            </video>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <section id="contact">
+            <h3>Контактная информация</h3>
+            <address>
+                <p><i>Позвоните мне!</i> <a class = "cnt" href="tel:+12345678">+12345678</a></p>
+                <p><i>Напишите мне!</i> <a class = "cnt" href="mailto:gered372@gmail.com?subject=Hello">gered372@gmail.com</a></p>
+            </address>
+            <p><small>&copy; 2024 Кинофестивали. Все права защищены.</small></p>
+        </section>
+    </footer>
+
+</body>
+</html>
