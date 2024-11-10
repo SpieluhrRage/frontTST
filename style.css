@@ -426,6 +426,7 @@ nav ul {
         left: 0;
         width: 100vw;
         height: 100vh;
+        padding:50px, 0;
         background-color: rgba(33, 33, 33, 0.921);
         display: flex;
         flex-direction: column;
@@ -460,7 +461,34 @@ nav ul {
         opacity: 1;
         visibility: visible;
     }
-    .menu-toggle:checked + #bur{
+    .menu-icon {
+        position: relative;
+        z-index: 20; /* Иконка выше меню */
+    }
+   
+    .menu-icon-close {
+        display: none;
+    }
+    
+    /* Отображаем меню и меняем иконку при открытии меню (когда чекбокс активен) */
+    .menu-toggle:checked ~ .menu {
+        display: flex;
+        flex-direction: column;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .menu-toggle:checked + .menu-icon .menu-icon-open {
+        display: none; /* Скрываем иконку меню */
+    }
+    
+    .menu-toggle:checked + .menu-icon .menu-icon-close {
+        display: block; /* Показываем иконку закрытия */
+    }
+    
+    /* Скройте меню по умолчанию */
+    .menu {
         display: none;
     }
 
