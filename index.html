@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Подключение CSS -->
+    <link rel="stylesheet" href="style.css"> 
+    
 </head>
 <body class ="body">
 
@@ -21,15 +22,22 @@
             <h1 class="great-vibes-regular">Кинофестивали</h1>
             <img src="pathwhiteright.svg" alt="Украшение в виде киноленты" class="logo right-logo"> <!-- Логотип справа -->
         </div>
-       <!-- <button class="burger-menu" aria-label="Открыть меню">
-            <svg width="30" height="30" xmlns="Group1.svg"></svg>
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>  Меню-бургер -->
+       
     </header>
     <nav>
+        <div class="notification">
+            <div class="icon">
+              <span class="bell"><img src="notif.svg"></span>
+            </div>
+            <div class="dropdown">
+              <div class="dropdown-item">1 List Item 1</div>
+              <div class="dropdown-item">2 List Item 2</div>
+              <div class="dropdown-item">3 List Item 3</div>
+              <div class="dropdown-item">4 List Item 4</div>
+            </div>
+          </div>
         <p id="hiddenLogo" class="great-vibes-regular">Кинофестивали</p>
+        <p id="hiddenLog2" class="great-vibes-regular">КФ</p>
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" id="bur" class="menu-icon">
             <svg class="menu-icon-open" width="45" height="45" viewBox="0 0 330 250" fill="grey" xmlns="http://www.w3.org/2000/svg">
@@ -43,26 +51,78 @@
             </svg>
         </label>
         <ul class="menu" id="menu">
-            <li><a href="#festivals">Фестивали</a></li>
+           
+            <li>
+                
+            <a href="#festivals">Фестивали</a></li>
             <li><a href="#registration">Регистрация</a></li>
             <li><a href="#contact">Контакты</a></li>
             <a class="icn"></a>
         </ul>
     </nav>
-    <!-- Основной контент -->
+     
     <main>
         <!-- Секция фестивалей -->
         <section id="festivals">
            <!-- <h1 id="T1"><i>Кинофестивали</i></h1>-->
             
             <div class = "cont comforter-regular">
-                <div class = "d1" ><p>Berlinale</p></div>
-                <div class = "d1"><p>Festival de Cannes</p></div>
-                <div class = "d1"><p>Locarno</p></div>
-                <div class = "d1"><p>MFF</p></div>
-                <div class = "d1"><p>Saint Petersburg </p></div> 
+                <div class = "incont">
+                    <img src="berlinale.png" class = "d1" alt="Berlinale logo">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Заголовок</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Modi, nulla?</p>
+                            <button class ="b b1">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class = "incont">
+                    <img class ="d1" src="lcrno2.png" alt="Locarno logo">
+                    <div class="overlay">
+                    <div class="text">
+                        <h3>Заголовок</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Modi, nulla?</p>
+                        <button class ="b b2">Подробнее</button>
+                    </div>
+                </div>
+                </div>
+
+                <div class = "incont">
+                    <img src = "cannes.png" class = "d1" alt="Cannes logo">
+                    <div class ="overlay">
+                        <div class = "text">
+                            <h3>Заголовок</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Modi, nulla?</p>
+                            <button class ="b b3">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class = "incont">
+                    <img src = "mff.jpg" class = "d1" alt="Moscow film festival logo">
+                    <div class ="overlay">
+                        <div class = "text">
+                            <h3>Заголовок</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Modi, nulla?</p>
+                            <button class ="b b4">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                <div class = "incont">
+                    <img src = "spiff.png" class = "d1" alt="Saint Petersburg film festival logo">
+                    <div class ="overlay">
+                        <div class = "text">
+                            <h3>Заголовок</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Modi, nulla?</p>
+                            <button class ="b b5">Подробнее</button>
+                        </div>
+                    </div>
+                </div> 
             </div>
-            
+        </div>    
         </section>
 
         <!-- Секция с цитатами -->
@@ -137,30 +197,14 @@
                     <input type ="checkbox" name = "mailing"  id="mailing">
                 </p>
                 <p>
-                    <lavel for="wishes">Оставьте свои пожелания: </lavel>
+                    <label for="wishes">Оставьте свои пожелания: </label>
                     <textarea id="wishes" name ="wishes" rows="7" cols="35"></textarea>
                 </p>
                 <button type="submit">Зарегистрироваться</button>
             </form>
         </section>
-        <!-- Секция с изображениями -
-        <section>
-            <h3>Изображения:</h3>
-            <p>
-                <a href="https://www.festival-cannes.com/en/" target="_blank">
-                    <img src="Festival_de_Cannes_logo.png" width="234" height="117" alt="Каннский фестиваль">
-                </a>
-            </p>
-            <img src="ma.jpg" usemap="#festival-map" alt="Карта кинофестивалей" width="400" height="476">
-            <map name="festival-map">
-                <area shape="poly" coords="150 ,335, 135, 355, 165, 355" href="https://www.festival-cannes.com/en/" alt="Каннский фестиваль">
-                <area shape="rect" coords="195, 310, 210, 325" href="https://www.labiennale.org/en/cinema" alt="Венецианский фестиваль">
-                <area shape="circle" coords="345,185,20" href="https://www.moscowfilmfestival.ru/" alt="Московский кинофестиваль">
-            </map>
-        </section>-->
-        <section>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92551.58059321831!2d6.926878104122477!3d43.53910358803882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ce8180530cffff%3A0x40819a5fd979e20!2z0JrQsNC90L3Riywg0KTRgNCw0L3RhtC40Y8!5e0!3m2!1sru!2sru!4v1728898099022!5m2!1sru!2sru" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </section>
+    
+        
         <section>
             <video controls width="250" loop muted>
                 <source src="herbst_version2.mp4" type="video/mp4">
@@ -181,6 +225,7 @@
             <p><small>&copy; 2024 Кинофестивали. Все права защищены.</small></p>
         </section>
     </footer>
+    <script src="script.js"></script>
 
 </body>
 </html>

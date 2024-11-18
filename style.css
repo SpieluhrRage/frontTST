@@ -57,11 +57,12 @@ header {
 
 /* Стили для заголовка */
 .great-vibes-regular {
-    font-size: 50px;
+    font-size: 65px;
     color: #ffb700;
     font-family: 'Great Vibes', cursive;
     text-align: center;
     margin: 0%;
+    
 }
 
 .comforter-regular {
@@ -81,16 +82,99 @@ nav {
     top: 0;
     background-color: #212121;
     z-index: 999; 
-}
-
-nav ul {
-    display: flex;
-    gap: 60px;
-    list-style-type: none;
-    padding: 0;
-    align-items: center;
     
 }
+
+.notification{
+    position: absolute;
+    align-self: center;
+    left: 20px;
+    display:flex;
+    z-index: 1000;
+    flex-flow: column;
+    overflow:visible;
+}
+.dropdown{
+    display: flex;
+    top:100%;
+    position: absolute;
+    flex-flow: column;
+    visibility:hidden;
+    z-index: 2000;
+    background-color: none;
+    box-shadow: none;
+    opacity: 0;
+    overflow: visible;
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+} 
+ 
+.dropdown-item{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    padding: 8px;
+    border-width: 1px 1px 1px 1px 1;
+    background-color:#8f670b;
+    box-shadow: none;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.dropdown-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: inherit;
+    border-radius: inherit;
+    transform: scale(1);
+    transition: transform 0.3s ease; /* Плавное увеличение */
+    z-index: -1; /* Псевдоэлемент находится под основным контентом */
+}
+
+.icon{
+    
+    background-color: none;
+    border-radius: 10%;
+    display:flex;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    transition: background-color 0.5s;   
+}
+/*.dropdown-item:last-child{
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    
+}*/
+
+.notification:hover .icon{
+    background-color:#8f670b;
+    width: 216px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+.notification:hover .dropdown{
+    visibility: visible;
+    opacity: 1;
+    box-shadow:10px 10px 10px #212121;
+    
+}
+
+
+.dropdown-item:hover{
+    background-color: #e6a200;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px) scale(1.05);
+}
+
+
+
+
+
+
 
 nav ul li a {
     text-decoration: none;
@@ -113,17 +197,7 @@ main {
 }
 
 
-aside {
-    float: right; 
-    
-    width: 20%;
-    padding: 10px;
-    background-color: #ffe588;
-    margin: 20px;
-    position: relative;
-    color:#333;
 
-}
 
 footer {
     background-color: #333;
@@ -158,56 +232,397 @@ a:active {
     justify-content: center;
     align-items: center;
     margin-right: 20px; 
+    transition: transform 0.5s ease;
     
 }
+.cont{
+    display: flex; 
+    flex-wrap: wrap;             
+    justify-content: space-between; 
+    margin: 0 auto;             
+    width: calc(180px * 5 + 50px * 4)
+}
+
+.incont {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10%;
+    transition: transform 0.3s ease;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 4, 216, 0.3), rgba(0, 4, 216, 1)); /* Полупрозрачное зелёное затемнение */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 10%;
+    
+}
+.incont:hover .d1 {
+    transform: scale(1.1); 
+}
+
+.incont:hover .overlay {
+    opacity: 1; /* Показ затемнения при наведении */
+}
+
+.overlay .text {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px); /* Смещение текста для появления снизу */
+}
+
+.overlay h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.overlay p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.overlay button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.incont:hover .text {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.b {
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 1s ease;
+}
+
+.b:hover {
+    transform: scale(1.1);
+}
+
+.b1 {
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981, 0 0 20px #10b981, 0 0 30px #10b981;
+}
+  
+.b1 {
+  box-shadow: 0 0 20px #34d399, 0 0 40px #34d399, 0 0 60px #34d399;
+}
+
+.b2 {
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+  animation: gradientShift 2s infinite;
+}
+
+.b2::after {
+  content: "»";
+  margin-left: 8px;
+  display: inline-block;
+  transform: translateX(-5px);
+  transition: transform 0.3s ease;
+}
+
+.b2:hover::after {
+  transform: translateX(5px);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+
+  .b3 {
+    background: #3b82f6;
+  }
+  
+  .b3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #2563eb;
+    transition: left 0.4s ease;
+    z-index: 0;
+  }
+  
+  .b3:hover::before {
+    left: 0;
+  }
+  
+  .b3:hover {
+    color: #fff;
+  }
+  
+  .b3 span {
+    position: relative;
+    z-index: 1;
+  }
 
 .d1:last-child {
     margin-right: 0;
 }
 .d1:nth-child(1){
-    background-color:#ff7979
+    background-color:#ffffff
 }
 .d1:nth-child(2){
-    background-color:#ffdb4a;
+    background-color:#ffffff;
 }
 .d1:nth-child(3){
-    background-color:#ffe8a7 ;
+    background-color:#ffffff ;
 }
 .d1:nth-child(4){
-    background-color:#7cfca0
+    background-color:#ffffff
 }
 .d1:nth-child(5){
-    background-color:#68c3ff
+    background-color:#ffffff
 }
 
-.cont{
-    display: flex;              
-    justify-content: space-between; 
-    margin: 0 auto;             
-    width: calc(180px * 5 + 30px * 4)
+
+
+.menu-toggle {
+    display: none;
+}
+
+
+nav ul {
+    display: flex;
+    gap: 60px;
+    list-style-type: none;
+    padding: 0;
+    align-items: center;
+}
+#hiddenLogo{
+    display: none;
+    font-size: 50px;
+}
+#bur{
+    display: none;
+}
+.menu-toggle {
+    display: none;
+}
+.menu-off{
+    display: none;
+}
+#menu-off{
+    display: none;
 }
 
 @media (max-width: 1100px) {
     .cont {
         display: flex;
-        flex-direction: column; /* Выстраиваем элементы в колонну */
-        align-items: center; /* Центрируем блоки по горизонтали */
-        width: auto; /* Ширина контейнера автоматически подстраивается */
+        gap: 20px;;
+        align-items: center; 
+        width: auto;
+        height: auto; 
+        justify-content:center;
+
+        height: auto;
     }
 
-    .d1 {
-        border-radius: 25%;
-        width: 100%; /* Фиксированная ширина блока */
-        margin-right: 0; /* Убираем правый отступ */
-        margin-bottom: 20px; /* Нижний отступ между элементами */
-    }
+    
 
     .d1:last-child {
         margin-bottom: 0; /* Убираем нижний отступ у последнего блока */
     }
+
+    
+    header{
+        display: none;
+    }
+    #hiddenLogo{
+        display: flex;
+        align-items: c;
+    }
+    
+    #bur{
+        height: 50px;
+        width: 50px;
+        display: flex;
+        color: #212121;
+        background-color: #212121;
+        border: 0px;
+        align-self: center;
+        position: absolute;
+        right: 0;
+    }
+
+    nav{
+        justify-content: center;
+    }
+    .notification{
+        position: absolute;
+        z-index: 2000;
+        flex-flow: column;
+        overflow: visible;
+    }
+    .dropdown{
+        display: flex;
+        top:100%;
+        position: absolute;
+        flex-flow: column;
+        visibility:hidden;
+        z-index: 2000;
+        background-color: none;
+        box-shadow: none;
+        overflow: visible;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    } 
+     
+    .dropdown-item{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        height: 50px;
+        width: 200px;
+        padding: 8px;
+        border-width: 1px 1px 1px 1px 1;
+        background-color:#8f670b;
+        border-width: 1px 1px 1px 1px;
+        box-shadow: none;
+        transition: background-color 0.5s ease;
+    }
+    
+    .icon{
+        
+        background-color: none;
+        border-radius: 10%;
+        display:flex;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        transition: background-color 0.5s;   
+    }
+   
+    
+    
+    .notification:hover .icon{
+        background-color:#8f670b;
+        width: 216px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+    }
+    .notification:hover .dropdown{
+        visibility: visible;
+        opacity: 1;
+        box-shadow:10px 10px 10px #212121;
+    }
+
+     /*Исходное состояние меню (скрыто) */
+    .menu {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        margin: 64px 0px 0px 0px;
+        background-color: rgb(33, 33, 33);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        visibility: none;
+        z-index: 2000;
+        pointer-events: none;
+    }
+    
+
+    /* Стили для ссылок внутри меню */
+    .menu li {
+        list-style: none;
+        margin: 20px 0;
+    }
+
+    .menu li a {
+        color: #ffb700;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+
+    .menu li a:hover {
+        color: #ffffff;
+    }
+   
+    
+    .menu-toggle:checked ~.menu  {
+        opacity: 1;
+        visibility: visible;
+        
+    }
+   
+   
+    .menu li label{
+        cursor: pointer;
+    }
+   
+    .menu-icon {
+        position: relative;
+        z-index: 20; 
+    }
+   
+    .menu-icon-close {
+        display: none;
+    }
+    
+    .menu-toggle:checked + .menu-icon .menu-icon-open {
+        display: none; 
+    }
+    
+    .menu-toggle:checked + .menu-icon .menu-icon-close {
+        display: block; 
+    }
+    
+    
+    
 }
+#hiddenLog2{
+    display: none;
+}
+@media (max-width: 430px){
+    #hiddenLog2{
+        display: flex;
+    }
 
-
+    #hiddenLogo{
+        display: none;
+    }
+}
 blockquote {
     position: relative;
     padding: 10px;
@@ -303,226 +718,7 @@ blockquote {
 
 
 
-/* Стили для header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #212121;
-}
-
-.burger-menu {
-    display: none; /* Изначально скрыта */
-    width: 30px;
-    height: 30px;
-    position: relative;
-    cursor: pointer;
-}
-
-.burger-menu span,
-.burger-menu::before,
-.burger-menu::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #ffb700;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.burger-menu::before,
-.burger-menu::after {
-    position: absolute;
-    left: 0;
-}
-
-.burger-menu::before {
-    top: -8px; /* Верхняя линия */
-}
-
-.burger-menu::after {
-    top: 8px; /* Нижняя линия */
-}
-
-/* Скрываем сам input */
-.menu-toggle {
-    display: none;
-}
-
-/* Скрываем навигацию по умолчанию */
-nav ul {
-    display: flex;
-    gap: 60px;
-    list-style-type: none;
-    padding: 0;
-    align-items: center;
-}
-#hiddenLogo{
-    display: none;
-}
-#bur{
-    display: none;
-}
-.menu-toggle {
-    display: none;
-}
-.menu-off{
-    display: none;
-}
-#menu-off{
-    display: none;
-}
-/* Медиазапрос для экранов меньше 1100px */
-@media (max-width: 1100px) {
-
-    #chck{
-        display: flex;
-        position:absolute;
-        top: 5px; right: 20px;
-        height: 50px;
-        width: 50px;
-        color: #212121;
-        background-color: #212121;
-        border: 0px;
-    }
-    #menu-off{
-        display: flex;
-        position: absolute;
-        top: 5px; right: 20px;
-        height: 50px;
-        width: 50px;
-        color: #212121;
-        background-color: #212121;
-        border: 0px;
-    }
-
-    header{
-        display: none;
-    }
-    #hiddenLogo{
-        display: flex;
-        align-items: start;
-    }
-    
-    #bur{
-        height: 50px;
-        width: 50px;
-        display: flex;
-        color: #212121;
-        background-color: #212121;
-        border: 0px;
-        align-self: center;
-    }
-    nav{
-        justify-content: space-between;
-    }
-
-    /* Исходное состояние меню (скрыто) */
-    .menu {
-        position: fixed;
-        margin: 0px;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        padding:50px, 0;
-        background-color: rgba(33, 33, 33, 0.921);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: translateY(-100%);
-        transition: transform 0.5s ease;
-        opacity: 0;
-        visibility: none;
-        z-index: 1000;
-    }
-
-    /* Стили для ссылок внутри меню */
-    .menu li {
-        list-style: none;
-        margin: 20px 0;
-    }
-
-    .menu li a {
-        color: #ffb700;
-        font-size: 2rem;
-        text-decoration: none;
-    }
-
-    .menu li a:hover {
-        color: #ffffff;
-    }
-
-    /* Управление видимостью меню при активном чекбоксе */
-    .menu-toggle:checked + #bur + .menu {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    .menu-icon {
-        position: relative;
-        z-index: 20; /* Иконка выше меню */
-    }
-   
-    .menu-icon-close {
-        display: none;
-    }
-    
-    /* Отображаем меню и меняем иконку при открытии меню (когда чекбокс активен) */
-    .menu-toggle:checked ~ .menu {
-        display: flex;
-        flex-direction: column;
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .menu-toggle:checked + .menu-icon .menu-icon-open {
-        display: none; /* Скрываем иконку меню */
-    }
-    
-    .menu-toggle:checked + .menu-icon .menu-icon-close {
-        display: block; /* Показываем иконку закрытия */
-    }
-    
-    /* Скройте меню по умолчанию */
-    .menu {
-        display: none;
-    }
-
-   
-    
-
-/* Прячем чекбокс */
 
 
-    /* Показываем бургер-меню 
-    .burger-menu {
-        display: block;
-    }*/
 
-    /* Скрываем меню */
-    
 
-    /* Меню отображается, когда checkbox отмечен 
-    .menu-toggle:checked + .burger-menu + nav ul {
-        display: flex;
-    }*/
-
-    /* Анимация бургер-меню при открытии 
-    .menu-toggle:checked + .burger-menu span {
-        transform: rotate(45deg);
-    }
-
-    .menu-toggle:checked + .burger-menu::before {
-        transform: rotate(90deg);
-        top: 0;
-    }
-
-    .menu-toggle:checked + .burger-menu::after {
-        transform: rotate(90deg);
-        top: 0;
-    }*/
-}
