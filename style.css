@@ -321,9 +321,12 @@ a:active {
     border-radius: 5px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: transform 0.5s ease;
     
 }
-
+.b:hover{
+    transform: scale(1.1);
+}
 
 
 .b1 {
@@ -456,13 +459,27 @@ a:active {
     font-family: Arial, sans-serif;
     font-size: 16px;
     text-transform: uppercase;
-    color: #3b82f6;
-    background: transparent;
-    border: 2px solid #3b82f6;
+    color: #fff;
+    border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
     overflow: hidden;
-    transition: border-color 0.5s ease, color 0.5s ease;
+    background: linear-gradient(90deg, #3b82f6, #1e40af, #10b981);
+    background-size: 300%;
+    animation: gradientAnimation 5s ease infinite;
+    transition: border-color 0.5s ease;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .b5::before {
@@ -477,15 +494,15 @@ a:active {
     transition: transform 0.5s ease, border-color 0.5s ease;
     transform: scale(0.8);
     box-sizing: border-box;
+    z-index: 0;
 }
 
 .b5:hover {
-    color: #08a154;
-    border-color: #1e40af;
+    border-color: #fff;
 }
 
 .b5:hover::before {
-    border-color: #1e40af;
+    border-color: #fff;
     transform: scale(1);
 }
 
@@ -498,7 +515,7 @@ a:active {
 
 .b5:hover span {
     transform: translateX(5px);
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.74);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
 }
 
 
