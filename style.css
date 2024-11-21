@@ -52,10 +52,10 @@ header {
 }
 
 .right-logo {
-    margin-left: 0px; /* Отступ между логотипом и заголовком */
+    margin-left: 0px; 
 }
 
-/* Стили для заголовка */
+
 .great-vibes-regular {
     font-size: 65px;
     color: #ffb700;
@@ -101,11 +101,11 @@ nav {
     flex-flow: column;
     visibility:hidden;
     z-index: 2000;
-    background-color: none;
-    box-shadow: none;
+    background-color: #8f670b;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     opacity: 0;
     overflow: visible;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, box-shadow 0.3s ease;
     border-radius: 10px;
 } 
  
@@ -116,45 +116,31 @@ nav {
     height: 50px;
     width: 200px;
     padding: 8px;
-    border-width: 1px 1px 1px 1px 1;
+    border: none;
+    border-radius: 0;
     background-color:#8f670b;
     box-shadow: none;
-    transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
 }
-.dropdown-item::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: inherit;
-    border-radius: inherit;
-    transform: scale(1);
-    transition: transform 0.3s ease; /* Плавное увеличение */
-    z-index: -1; /* Псевдоэлемент находится под основным контентом */
+
+.dropdown-item:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .icon{
-    
+    width: 216px;
     background-color: none;
-    border-radius: 10%;
+    border-radius: 10px;
     display:flex;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
     transition: background-color 0.5s;   
 }
-/*.dropdown-item:last-child{
-    border-bottom-left-radius: 10%;
-    border-bottom-right-radius: 10%;
-    
-}*/
 
 .notification:hover .icon{
     background-color:#8f670b;
-    width: 216px;
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
+    
 }
 .notification:hover .dropdown{
     visibility: visible;
@@ -168,6 +154,7 @@ nav {
     background-color: #e6a200;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px) scale(1.05);
+    border-radius: 10px;
 }
 
 
@@ -240,7 +227,8 @@ a:active {
     flex-wrap: wrap;             
     justify-content: space-between; 
     margin: 0 auto;             
-    width: calc(180px * 5 + 50px * 4)
+    width: calc(180px * 5 + 50px * 4);
+    
 }
 
 .incont {
@@ -249,7 +237,7 @@ a:active {
     height: 180px;
     overflow: hidden;
     border-radius: 10%;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 .overlay{
     position: absolute;
@@ -270,6 +258,7 @@ a:active {
 .incont:hover .overlay {
     opacity: 1; 
 }
+
 
 .overlay .text {
     position: absolute;
@@ -292,9 +281,6 @@ a:active {
 }
 
 .overlay button {
-    
-    
-    
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
@@ -302,6 +288,16 @@ a:active {
     
 }
 
+.cont:hover .incont:not(:hover){
+   filter: blur(10px);
+   transition: filter 0.5s ease, transform 0.5s ease
+}
+
+.incont:hover {
+    filter: none;
+    transform: scale(1.1); 
+    z-index: 2; 
+}
 
 
 .incont:hover .text {
@@ -337,6 +333,8 @@ a:active {
 .b1:hover {
   animation: boxshdwShift 1s infinite;
 }
+
+
 
 @keyframes boxshdwShift {
     0% {
@@ -584,7 +582,7 @@ nav ul {
     
 
     .d1:last-child {
-        margin-bottom: 0; /* Убираем нижний отступ у последнего блока */
+        margin-bottom: 0; 
     }
 
     
@@ -613,7 +611,7 @@ nav ul {
     }
     .notification{
         position: absolute;
-        z-index: 2000;
+        z-index: 3001;
         flex-flow: column;
         overflow: visible;
     }
@@ -623,7 +621,7 @@ nav ul {
         position: absolute;
         flex-flow: column;
         visibility:hidden;
-        z-index: 2000;
+        z-index: 3001;
         background-color: none;
         box-shadow: none;
         overflow: visible;
@@ -639,17 +637,17 @@ nav ul {
         height: 50px;
         width: 200px;
         padding: 8px;
-        border-width: 1px 1px 1px 1px 1;
+        border: none;
         background-color:#8f670b;
-        border-width: 1px 1px 1px 1px;
+        border-radius: 0;
         box-shadow: none;
-        transition: background-color 0.5s ease;
+        transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
     }
     
     .icon{
-        
+        width:216px;
         background-color: none;
-        border-radius: 10%;
+        border-radius: 10px;
         display:flex;
         border-bottom-left-radius: 0%;
         border-bottom-right-radius: 0%;
@@ -660,9 +658,7 @@ nav ul {
     
     .notification:hover .icon{
         background-color:#8f670b;
-        width: 216px;
-        border-top-left-radius: 10%;
-        border-top-right-radius: 10%;
+        
     }
     .notification:hover .dropdown{
         visibility: visible;
@@ -670,7 +666,7 @@ nav ul {
         box-shadow:10px 10px 10px #212121;
     }
 
-     /*Исходное состояние меню (скрыто) */
+     
     .menu {
         position: fixed;
         width: 100%;
@@ -684,15 +680,16 @@ nav ul {
         transition: opacity 0.3s ease;
         opacity: 0;
         visibility: none;
-        z-index: 2000;
-        pointer-events: none;
+        z-index: 3000;
+        
     }
     
 
-    /* Стили для ссылок внутри меню */
+    
     .menu li {
         list-style: none;
         margin: 20px 0;
+        z-index: 3001;
     }
 
     .menu li a {
