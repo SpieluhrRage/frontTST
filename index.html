@@ -178,7 +178,7 @@
                 </fieldset>
                 <p>
                     <label for="time" name = "time" id = "time" >Дата посещения</label>
-                    <input type="datetime-local" name = "time" id = "time" min="2024-10-17T10:00" max="2027-01-01T10:00" required>
+                    <input type="datetime-local" name = "time"  min="2024-10-17T10:00" max="2027-01-01T10:00" required>
                 </p> 
                 <p>
                     <label for="mailing" name = "mailing" id= "mailing">Хочу получать рассылку о новостях и персональных предложениях</label>
@@ -193,24 +193,46 @@
         </section>
     
         
-        <section>
-            <video controls width="250" loop muted>
-                <source src="herbst_version2.mp4" type="video/mp4">
-                Что-то пошло не так. Попробуйте обновить страницу
-
-            </video>
-        </section>
+        
     </main>
 
     <!-- Подвал сайта -->
     <footer>
-        <section id="contact">
-            <h3>Контактная информация</h3>
-            <address>
-                <p><i>Позвоните мне!</i> <a class = "cnt" href="tel:+12345678">+12345678</a></p>
-                <p><i>Напишите мне!</i> <a class = "cnt" href="mailto:gered372@gmail.com?subject=Hello">gered372@gmail.com</a></p>
-            </address>
-            <p><small>&copy; 2024 Кинофестивали. Все права защищены.</small></p>
+        <section id="contact" class="contact">
+            <div id = "aboutus">
+                <h3>О нас</h3>
+                <p>This page is brought to you thanks to the support of music, coffee and cigarettes. For additional information please contact me.
+                    <p>
+                        Ring the bells, that still can ring, <br>
+                        Forget your perfect offering.<br>
+                        There is a crack, a crack in everything<br>
+                        That's how the light gets in<br>
+                    <p>
+                </p>
+            </div>
+
+            <div id="contact-info">
+                <h3>Контактная информация</h3>
+                <address>
+                    <p><i>Позвоните мне!</i> <a class = "cnt" href="tel:88005553535">88005553535</a></p>
+                    <p><i>Напишите мне!</i> <a class = "cnt" href="mailto:gered372@gmail.com?subject=Hello">gered372@gmail.com</a></p>
+                </address>
+                <div id="socialnetworks">
+                    <a href="https://youtu.be/CHOza45c57w?si=iaAxhUjg0VpGMk6E" target="_blank"><img id="slog" src="ytlogo.svg" ></a>
+                    <a href="https://t.me/MomentaryLapseOfReason" target="_blank"><img  id="slog" src="tglogo.svg"></a>
+                    
+                </div>
+            </div>
+
+            <div id="shop">
+                <h3>Потратить деньги</h3>
+            <p>Nothing to see here at the moment. Stay tuned!</p>
+            </div>
+
+            <div id="copyright">
+                <p><small>&copy; 2024 Кинофестивали. Все права защищены.</small></p>
+            </div>
+            
         </section>
     </footer>
     <script src="script.js"></script>

@@ -179,10 +179,94 @@ main {
     padding: 20px;
 }
 
-#contact {
-    margin-bottom: 5px;
+.contact {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    column-gap: 45px;
+    row-gap: 20px;
+    grid-template-areas: 
+    "aboutus contact-info shop"
+    "copyright copyright copyright";
+    
+}
+footer h3{
+    align-self: center;
+    
+}
+#aboutus{
+    display: flex;
+    flex-flow: column;
+    align-items: start;
+    grid-area: aboutus;
+    text-align: start;
+    margin-left: 20px;
+    margin-right: 50px;
 }
 
+#shop{
+    display: flex;
+    flex-flow: column;
+    align-items: start;
+    text-align: start;
+    grid-area: shop;
+    margin-right: 20px;
+}
+#contact-info{
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    grid-area: contact-info;
+}
+#copyright{
+    grid-area: copyright;
+    background-color: #212121;
+}
+
+#socialnetworks{
+    align-items: start;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#slog{
+    width: 50px;
+    height: 50px;   
+    background-color: none;
+    border-radius: 100%;
+}
+
+.contact > div {
+    position: relative;
+    padding: 10px;
+}
+
+.contact > div:not(#copyright)::before,
+.contact > div:not(#copyright)::after {
+    content: '';
+    position: absolute;
+    height: 0; 
+    width: 2px; 
+    background-color: #ffb700; 
+    transition: height 0.3s ease, bottom 0.3s ease;
+}
+
+.contact > div:not(#copyright)::before {
+    left: 0; 
+    bottom: 0;
+}
+
+.contact > div:not(#copyright)::after {
+    right: 0; 
+    bottom: 0;
+}
+
+.contact > div:not(#copyright):hover::before,
+.contact > div:not(#copyright):hover::after {
+    height: 100%;
+    bottom: auto;
+    top: 0; 
+}
 
 
 
@@ -190,7 +274,7 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 5px 0;
+    padding: 5px 0, 0, 0;
     border-top: 1px solid #ffb700;
 }
 
@@ -680,7 +764,8 @@ nav ul {
         transition: opacity 0.3s ease;
         opacity: 0;
         visibility: none;
-        z-index: 3000;
+        pointer-events: none;
+        
         
     }
     
@@ -689,7 +774,7 @@ nav ul {
     .menu li {
         list-style: none;
         margin: 20px 0;
-        z-index: 3001;
+        
     }
 
     .menu li a {
@@ -706,6 +791,7 @@ nav ul {
     .menu-toggle:checked ~.menu  {
         opacity: 1;
         visibility: visible;
+        pointer-events: all;
         
     }
    
@@ -732,6 +818,48 @@ nav ul {
     }
     
     
+    .contact{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "contact-info shop"
+        "aboutus aboutus"
+        "copyright copyright";
+    }
+
+    .contact > div {
+    position: relative;
+    padding: 10px;
+}
+
+.contact > div:not(#copyright)::before,
+.contact > div:not(#copyright)::after {
+    content: '';
+    position: absolute;
+    height: 0; /* Изначально граница не видна */
+    width: 2px; /* Толщина границы */
+    background-color: #ffb700; /* Цвет границы */
+    transition: height 0.3s ease, bottom 0.3s ease;
+}
+
+.contact > div:not(#copyright)::before {
+    left: 0; /* Левая граница */
+    bottom: 0; /* Начало снизу */
+}
+
+.contact > div:not(#copyright)::after {
+    right: 0; /* Правая граница */
+    bottom: 0; /* Начало снизу */
+}
+
+.contact > div:not(#copyright):hover::before,
+.contact > div:not(#copyright):hover::after {
+    height: 100%; /* Полная высота элемента */
+    bottom: auto; /* Убираем фиксирование снизу */
+    top: 0; /* Завершаем движение сверху */
+}
+
     
 }
 #hiddenLog2{
