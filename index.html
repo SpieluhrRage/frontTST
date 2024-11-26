@@ -19,7 +19,7 @@
     <header>
         <div class="header-container">
             <img src="pathwhiteleft.svg" alt="Украшение в виде киноленты" class="logo left-logo"> <!-- Логотип слева -->
-            <h1 class="great-vibes-regular">Кинофестивали</h1>
+            <h1 class="headerFont">К и н о ф е с т и в а л и</h1>
             <img src="pathwhiteright.svg" alt="Украшение в виде киноленты" class="logo right-logo"> <!-- Логотип справа -->
         </div>
        
@@ -36,8 +36,8 @@
               <div class="dropdown-item">4 List Item 4</div>
             </div>
         </div>
-        <p id="hiddenLogo" class="great-vibes-regular">Кинофестивали</p>
-        <p id="hiddenLog2" class="great-vibes-regular">КФ</p>
+        <p id="hiddenLogo" class="headerFont">Кинофестивали</p>
+        <p id="hiddenLog2" class="headerFont">КФ</p>
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" id="bur" class="menu-icon">
             <svg class="menu-icon-open" width="45" height="45" viewBox="0 0 330 250" fill="grey" xmlns="http://www.w3.org/2000/svg">
@@ -52,8 +52,8 @@
         </label>
         <ul class="menu" id="menu">
            
-            <li><a href="#festivals">Фестивали</a></li>
-            <li><a href="#registration">Регистрация</a></li>
+            <li><a href="#festivals">Главное</a></li>
+            <li><a href="#registration-overlay">Регистрация</a></li>
             <li><a href="#contact">Контакты</a></li>
         </ul>
     </nav>
@@ -148,49 +148,45 @@
 
 
 
-        <section id="registration">
-            <h3>Регистрация на мероприятие: </h3>
-            <form action="" method="get">
+                 <div id="registration-overlay">
+                    <div class="registration-modal">
+                        <a href="#" class="close-button">&times;</a> <!-- Кнопка для закрытия -->
+                        <h3>Регистрация на мероприятие:</h3>
+                        <form action="" method="get">
+                            
+                            <label for="name">Имя</label>
+                            <input type="text" name="name" id="name" required>
                 
-                    <label for="name">Имя</label>
-                    <input type="text" name="name" id="name" required>
+                            <label for="surname">Фамилия</label>
+                            <input type="text" name="surname" id="surname">
                 
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="example@domain.region" required>
                 
-                    <label for="surname">Фамилия</label>
-                    <input type="text" name="surname" id="surname">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" name="phone" id="phone" required>
+
+                            <label for="time">Дата посещения</label>
+                            <input type="datetime-local" name="time" min="2024-10-17T10:00" max="2027-01-01T10:00" required>
                 
-                    <label for="email">Email</label>
-                    <input type = "email" name = "email" id="email" placeholder="example@domain.region" required>
+                            <fieldset>
+                                <legend>Зарегистрироваться как..</legend>
+                                <label><input type="radio" name="answer" value="private" required> Частное лицо</label>
+                                <label><input type="radio" name="answer" value="organisation" required> Организация</label>
+                            </fieldset>
                 
-                    <label for="phone">Tel.</label>
-                    <input type = "tel" name = "phone" id="phone" required>
+                            
+                            
+                                <label for="mailing">Хочу получать рассылку</label>
+                                <input type="checkbox" name="mailing" id="mailing">
+                            
                 
-                <fieldset >
-                    <legend>Зарегистрироваться как..</legend>
-                    <label>
-                        <input type ="radio" name="answer" value="private" required>
-                        Частное лицо
-                    </label>
-                    <label>
-                        <input type ="radio" name="answer" value="organisation" required>
-                        Организация
-                    </label>
-                </fieldset>
-                <p>
-                    <label for="time" name = "time" id = "time" >Дата посещения</label>
-                    <input type="datetime-local" name = "time"  min="2024-10-17T10:00" max="2027-01-01T10:00" required>
-                </p> 
-                <p>
-                    <label for="mailing" name = "mailing" id= "mailing">Хочу получать рассылку о новостях и персональных предложениях</label>
-                    <input type ="checkbox" name = "mailing"  id="mailing">
-                </p>
-                <p>
-                    <label for="wishes">Оставьте свои пожелания: </label>
-                    <textarea id="wishes" name ="wishes" rows="7" cols="35"></textarea>
-                </p>
-                <button type="submit">Зарегистрироваться</button>
-            </form>
-        </section>
+                           
+                
+                            <button type="submit">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
     
         
         
@@ -201,12 +197,14 @@
         <section id="contact" class="contact">
             <div id = "aboutus">
                 <h3>О нас</h3>
-                <p>This page is brought to you thanks to the support of music, coffee and cigarettes. For additional information please contact me.
+                <p>This page is brought to you thanks to the support of music, coffee and cigarettes. For additional information please  contact me.
                     <p>
-                        Ring the bells, that still can ring, <br>
-                        Forget your perfect offering.<br>
-                        There is a crack, a crack in everything<br>
-                        That's how the light gets in<br>
+                        Strangers passing in the street<br>
+                        By chance, two separate glances meet<br>
+                        And I am you and what I see is me<br>
+                        And do I take you by the hand<br>
+                        And lead you through the land<br>
+                        And help me understand the best I can?<br>
                     <p>
                 </p>
             </div>

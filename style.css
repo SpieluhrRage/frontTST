@@ -56,15 +56,19 @@ header {
 }
 
 
-.great-vibes-regular {
+@font-face {
+    font-family: "Sensal Outline";
+    src: url("font.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+.headerFont{
+    font-family: "Sensal Outline", serif;
     font-size: 65px;
     color: #ffb700;
-    font-family: 'Great Vibes', cursive;
     text-align: center;
     margin: 0%;
-    
 }
-
 .comforter-regular {
     font-size: 30px;
     font-family: "Comforter", cursive;
@@ -650,6 +654,18 @@ nav ul {
 #menu-off{
     display: none;
 }
+@media (max-width: 1880px){
+    .logo {
+        display: none;
+    }
+    .headerFont{
+        font-size: 55px;
+    }
+    .header-container{
+        justify-content: center;
+        
+    }
+}
 
 @media (max-width: 1100px) {
     .cont {
@@ -673,9 +689,11 @@ nav ul {
     header{
         display: none;
     }
+    
     #hiddenLogo{
         display: flex;
         align-items: c;
+        font-size: 35px;
     }
     
     #bur{
@@ -860,14 +878,25 @@ nav ul {
     top: 0; /* Завершаем движение сверху */
 }
 
+.registration-modal {
+    width: 100%;
+    padding: 15px;
+}
+
+.registration-modal input,
+.registration-modal textarea {
+    width: 100%;
+}
+
     
 }
 #hiddenLog2{
     display: none;
 }
-@media (max-width: 430px){
+@media (max-width: 640px){
     #hiddenLog2{
         display: flex;
+        font-size: 35px;
     }
 
     #hiddenLogo{
@@ -890,82 +919,99 @@ blockquote {
     color:#a4dbff;
 }
 
-#registration {
-    background-color: #ffe588; 
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    color: #333;
+/* Скрытие модального окна по умолчанию */
+#registration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px); /* Размытие фона */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-#registration h3 {
-    font-family: 'Comforter', cursive;
-    color: #333;
-    font-size: 30px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-#registration form {
+/* Появление модального окна при наведении на #registration-overlay */
+#registration-overlay:target {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
 }
 
-#registration label {
-    font-size: 18px;
+/* Стили модального окна */
+.registration-modal {
+    background: #333;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-rows: auto;
+    gap: 15px;
+}
+
+/* Стили для кнопки закрытия */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #333;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки одинаковой ширины */
+    gap: 20px; /* Отступы между элементами */
+    max-width: 600px; /* Ограничение ширины формы */
+    margin: 0 auto; /* Центрирование формы */
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    
-    color: #333;
+    align-content: center;
 }
 
-#registration input[type="text"],
-#registration input[type="email"],
-#registration input[type="tel"],
-#registration input[type="datetime-local"],
-#registration textarea {
-    width: 99%;
-    padding: 10px 10px 10px 0px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 25px;
+form input,
+form select,
+form button {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
-#registration input[type="checkbox"],
-#registration input[type="radio"] {
-    margin-right: 10px;
+
+fieldset {
+    grid-column: span 2; /* Растягиваем fieldset на две колонки */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+fieldset input{
+    width: auto;
 }
 
-#registration button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #ffb700;
+
+
+form button {
+    grid-column: span 2; /* Кнопка тоже на две колонки */
+    background-color: #000;
     color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px;
 }
 
-#registration button:hover {
-    background-color: #e6a200;
+form button:hover {
+    background-color: #444;
 }
 
-#registration fieldset {
-    border: none;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-size: 18px;
-}
 
-#registration textarea {
-    resize: none;
-}
+
 
 
 
