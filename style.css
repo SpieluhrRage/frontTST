@@ -1,7 +1,7 @@
 body{
     display: block;
     margin: 0%;
-    font-family: 'Arial', sans-serif;
+    font-family: "Libre Franklin", sans-serif;
     color:#ffffff;
     margin: 0%;
     background-color: #212121;
@@ -188,7 +188,7 @@ main {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
     column-gap: 45px;
-    row-gap: 20px;
+    
     grid-template-areas: 
     "aboutus contact-info shop"
     "copyright copyright copyright";
@@ -233,12 +233,63 @@ footer h3{
     justify-content: space-evenly;
 }
 
-#slog{
-    width: 50px;
-    height: 50px;   
-    background-color: none;
-    border-radius: 100%;
+
+.gradient-icon {
+  position: relative;
+  display: inline-block;
+  width: 50px;  
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: none;
+  transition: background 0.5s ease;
 }
+
+.gradient-icon.yt::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0%;
+  height: 0%;
+  border-radius: 50%;
+  transition: width 0.5s ease, height 0.5s ease;
+  transform: translate(-50%, -50%);
+}
+
+.gradient-icon.yt::before{
+    background: linear-gradient(45deg, rgb(199, 11, 11), rgb(109, 17, 17));
+}
+.gradient-icon.tg::before{
+    background: linear-gradient(45deg, rgb(48, 173, 237), rgb(108, 220, 245));
+}
+.gradient-icon.tg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0%;
+  height: 0%;
+  border-radius: 50%;
+  transition: width 0.5s ease, height 0.5s ease;
+  transform: translate(-50%, -50%);
+}
+
+.gradient-icon:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+.gradient-icon img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}   
+
+
+
 
 .contact > div {
     position: relative;
@@ -334,7 +385,7 @@ a:active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 4, 216, 0.3), rgba(0, 4, 216, 1)); /* Полупрозрачное зелёное затемнение */
+    background: linear-gradient(rgba(0, 4, 216, 0.3), rgba(0, 4, 216, 1)); 
     opacity: 0;
     transition: opacity 0.5s ease;
     border-radius: 10%;
@@ -850,27 +901,27 @@ nav ul {
 .contact > div:not(#copyright)::after {
     content: '';
     position: absolute;
-    height: 0; /* Изначально граница не видна */
-    width: 2px; /* Толщина границы */
-    background-color: #ffb700; /* Цвет границы */
+    height: 0; 
+    width: 2px; 
+    background-color: #ffb700; 
     transition: height 0.3s ease, bottom 0.3s ease;
 }
 
 .contact > div:not(#copyright)::before {
-    left: 0; /* Левая граница */
-    bottom: 0; /* Начало снизу */
+    left: 0; 
+    bottom: 0;
 }
 
 .contact > div:not(#copyright)::after {
-    right: 0; /* Правая граница */
-    bottom: 0; /* Начало снизу */
+    right: 0; 
+    bottom: 0;
 }
 
 .contact > div:not(#copyright):hover::before,
 .contact > div:not(#copyright):hover::after {
-    height: 100%; /* Полная высота элемента */
-    bottom: auto; /* Убираем фиксирование снизу */
-    top: 0; /* Завершаем движение сверху */
+    height: 100%; 
+    bottom: auto; 
+    top: 0; 
 }
 
 .registration-modal {
@@ -914,7 +965,6 @@ blockquote {
     color:#a4dbff;
 }
 
-/* Скрытие модального окна по умолчанию */
 #registration-overlay {
     position: fixed;
     top: 0;
@@ -922,67 +972,97 @@ blockquote {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px); /* Размытие фона */
-    display: none;
+    backdrop-filter: blur(8px); 
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    
 }
 
-/* Появление модального окна при наведении на #registration-overlay */
+
 #registration-overlay:target {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
 }
 
-/* Стили модального окна */
+
 .registration-modal {
     background: #333;
     border-radius: 8px;
     padding: 20px;
-    max-width: 600px;
+    padding-top: 0;
+    max-width: 500px;
     width: 90%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template-rows: auto;
     gap: 15px;
 }
+.registration-modal h3{
+    text-align: center;
+}
 
-/* Стили для кнопки закрытия */
+
 .close-button {
     position: absolute;
     top: 10px;
     right: 20px;
+    border-radius: 10px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 100px;
     color: #333;
 }
 
 form {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки одинаковой ширины */
-    gap: 20px; /* Отступы между элементами */
-    max-width: 600px; /* Ограничение ширины формы */
-    margin: 0 auto; /* Центрирование формы */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; 
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    align-content: center;
+#name,
+#surname,
+#email,
+#phone{
+    grid-column: span 2;
 }
 
 form input,
 form select,
 form button {
+    background-color: #252525;
+    color:#ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
+form input:focus, 
+form input:hover, 
+form textarea:focus, 
+form textarea:hover {
+    background-color: #444; 
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+form input:focus, 
+form textarea:focus,
+form label:focus {
+    outline: none;
+    border-bottom: 2px solid #ffb700;
+    transition: border-bottom 0.3s ease;
+}
 
 fieldset {
-    grid-column: span 2; /* Растягиваем fieldset на две колонки */
+    grid-column: span 2;
     border: 1px solid #ccc;
     padding: 10px;
 }
@@ -993,22 +1073,19 @@ fieldset input{
 
 
 form button {
-    grid-column: span 2; /* Кнопка тоже на две колонки */
+    grid-column: span 2; 
     background-color: #000;
     color: #fff;
     border: none;
     cursor: pointer;
     padding: 10px;
+    border-radius: 10px;
 }
 
 form button:hover {
-    background-color: #444;
+    background-color: #ffb700;
+    color: #000;
 }
-
-
-
-
-
 
 
 

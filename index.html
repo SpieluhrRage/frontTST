@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
+
     
 </head>
 <body class ="body">
@@ -150,21 +154,19 @@
 
                  <div id="registration-overlay">
                     <div class="registration-modal">
-                        <a href="#" class="close-button">&times;</a> <!-- Кнопка для закрытия -->
+                        <a href="#" class="close-button">&times;</a>
                         <h3>Регистрация на мероприятие:</h3>
                         <form action="" method="get">
                             
-                            <label for="name">Имя</label>
-                            <input type="text" name="name" id="name" required>
+                            
+                            <input type="text" name="name" id="name" placeholder="Ваше имя" required>
                 
-                            <label for="surname">Фамилия</label>
-                            <input type="text" name="surname" id="surname">
+                            <input type="text" name="surname" placeholder="Ваша фамилия" id="surname">
                 
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="example@domain.region" required>
+            
+                            <input type="email" name="email" placeholder="Ваш адрес электронной почты" id="email" placeholder="example@domain.region" required>
                 
-                            <label for="phone">Телефон</label>
-                            <input type="tel" name="phone" id="phone" required>
+                            <input type="tel" name="phone" placeholder="Ваш телефон" id="phone" required>
 
                             <label for="time">Дата посещения</label>
                             <input type="datetime-local" name="time" min="2024-10-17T10:00" max="2027-01-01T10:00" required>
@@ -198,7 +200,7 @@
             <div id = "aboutus">
                 <h3>О нас</h3>
                 <p>This page is brought to you thanks to the support of music, coffee and cigarettes. For additional information please  contact me.
-                    <p>
+                    <p class="lyrics">
                         Strangers passing in the street<br>
                         By chance, two separate glances meet<br>
                         And I am you and what I see is me<br>
@@ -216,8 +218,8 @@
                     <p><i>Напишите мне!</i> <a class = "cnt" href="mailto:gered372@gmail.com?subject=Hello">gered372@gmail.com</a></p>
                 </address>
                 <div id="socialnetworks">
-                    <a href="https://youtu.be/CHOza45c57w?si=iaAxhUjg0VpGMk6E" target="_blank"><img id="slog" src="ytlogo.svg" ></a>
-                    <a href="https://t.me/MomentaryLapseOfReason" target="_blank"><img  id="slog" src="tglogo.svg"></a>
+                    <a href="https://youtu.be/CHOza45c57w?si=iaAxhUjg0VpGMk6E" target="_blank" class ="gradient-icon yt"><img id="slog" src="ytlogo.svg" ></a>
+                    <a href="https://t.me/MomentaryLapseOfReason" target="_blank" class="gradient-icon tg"><img  id="slog" src="tglogo.svg"></a>
                     
                 </div>
             </div>
