@@ -357,7 +357,7 @@ a:active {
     width: 180px;
     justify-content: center;
     align-items: center;
-    margin-right: 20px; 
+    
     transition: transform 0.5s ease;
     
 }
@@ -367,7 +367,7 @@ a:active {
     column-gap: 25px;
     row-gap: 25px;
     margin: 0 auto;             
-    width: calc(180px * 5 + 50px * 4);
+    width: calc(180px * 3 + 25px * 2);
     
 }
 
@@ -1087,24 +1087,6 @@ form button:hover {
     color: #000;
 }
 
-.js{
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-}
-.js svg {
-    width: 80px;
-      height: 70px;
-      color: rgb(0, 0, 0); /* Цвет SVG по умолчанию */
-      transition: fill 0.3s ease;
-}
-
-.heart {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    pointer-events: none;
-  }
 
 
 
