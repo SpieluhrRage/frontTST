@@ -162,7 +162,10 @@ nav {
 }
 
 
-
+.bell svg{
+    color:#ffffff;
+    transition: color 0.5s ease;
+}
 
 
 
@@ -353,8 +356,8 @@ a:active {
 .d1 {
     display: flex;
     border-radius: 10%;
-    height: 180px;
-    width: 180px;
+    height: 250px;
+    width: 250px;
     justify-content: center;
     align-items: center;
     
@@ -363,18 +366,18 @@ a:active {
 }
 .cont{
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     column-gap: 25px;
     row-gap: 25px;
     margin: 0 auto;             
-    width: calc(180px * 3 + 25px * 2);
+    width: calc(250px * 3 + 25px * 2);
     
 }
 
 .incont {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     border-radius: 10%;
     transition: transform 0.5s ease;
@@ -1086,6 +1089,8 @@ form button:hover {
     background-color: #ffb700;
     color: #000;
 }
+
+
 
 
 

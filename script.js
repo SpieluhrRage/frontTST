@@ -26,9 +26,13 @@ document.querySelectorAll('.menu a').forEach(item => {
     });
 });
 
-const button = document.querySelector('.js');
-const svg = button.querySelector('svg');
-let isDrawing = false; // Состояние "рисования"
+
+
+const button = document.querySelector('.jsp');
+
+if(button != null){
+  const svg = button.querySelector('svg')
+  let isDrawing = false; // Состояние "рисования"
 
 // Менять цвет кнопки при нажатии
 button.addEventListener('click', () => {
@@ -62,3 +66,57 @@ document.addEventListener('mousemove', (event) => {
   heart.innerHTML = heartSVG;
   document.body.appendChild(heart);
 });
+}
+
+
+
+// Конструктор Accumulator
+
+
+// Создаем экземпляр для хранения общей суммы товаров
+
+
+// Ссылка на контейнер для элементов корзины
+const cartItemsContainer = document.querySelector(".cart-items");
+if(cartItemsContainer){
+  function Accumulator(startingValue) {
+    this.value = startingValue;
+
+    this.read = function () {
+        const newValue = +prompt("Введите число для добавления:");
+        this.value += newValue;
+    };
+  }
+
+  const cartTotal = new Accumulator(0); 
+
+  function addToCart(itemName, itemPrice) {
+  // Создаем новый элемент для товара
+  const newItem = document.createElement("div");
+  newItem.classList.add("dropdown-item");
+  newItem.textContent = `${itemName} - ${itemPrice} Р`;
+
+  // Добавляем товар в контейнер
+  cartItemsContainer.appendChild(newItem);
+
+  // Обновляем общую сумму
+  cartTotal.value += itemPrice;
+  const cart = document.querySelector(".bell");
+  const carticon = cart.querySelector('svg');
+  if(cartTotal.value > 0){
+    carticon.style.color = '#fff200';
+  }
+  document.querySelector(".total").textContent = `Итого: ${cartTotal.value} Р`;
+}
+
+// Привязываем обработчики событий к кнопкам товаров
+document.querySelectorAll(".b").forEach((button) => {
+  button.addEventListener("click", () => {
+      const itemName = button.getAttribute("data-name");
+      const itemPrice = +button.getAttribute("data-price");
+      addToCart(itemName, itemPrice);
+  });
+});
+}
+// Функция для добавления товара в корзину
+
