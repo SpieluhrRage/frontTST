@@ -167,7 +167,13 @@ nav {
     transition: color 0.5s ease;
 }
 
-
+.cart-total{
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 14px;
+    bottom: 14px;
+}
 
 
 nav ul li a {

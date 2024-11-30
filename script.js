@@ -77,46 +77,100 @@ document.addEventListener('mousemove', (event) => {
 
 
 // Ссылка на контейнер для элементов корзины
-const cartItemsContainer = document.querySelector(".cart-items");
-if(cartItemsContainer){
-  function Accumulator(startingValue) {
-    this.value = startingValue;
+document.addEventListener("DOMContentLoaded", () => {
+  const cartItemsContainer = document.querySelector(".cart-items");
+  const totalDisplay = document.createElement("span");
+  const cartIcon = document.querySelector(".bell svg");
+  const totalAdapt = document.querySelector(".dropdown-item.total");
 
-    this.read = function () {
-        const newValue = +prompt("Введите число для добавления:");
-        this.value += newValue;
-    };
+  if (cartItemsContainer) {
+    // Функция для накопления итоговой суммы
+    function Accumulator(startingValue) {
+      this.value = startingValue;
+  
+      this.add = function (amount) {
+        this.value += amount;
+      };
+  
+      this.subtract = function (amount) {
+        this.value -= amount;
+      };
+  
+      this.reset = function () {
+        this.value = 0;
+      };
+    }
+  
+    const cartTotal = new Accumulator(0); // Итоговая сумма
+    const totalDisplay = document.createElement("span"); // Для отображения рядом с корзиной
+    totalDisplay.classList.add("cart-total");
+    document.querySelector(".bell").appendChild(totalDisplay);
+  
+    function updateTotalDisplay() {
+      totalDisplay.textContent = cartTotal.value > 0 ? `Итого: ${cartTotal.value} Р` : "";
+      totalAdapt.textContent = cartTotal.value > 0 ? `Итого: ${cartTotal.value} Р` : "";
+      const cartIcon = document.querySelector(".bell svg");
+      cartIcon.style.color = cartTotal.value > 0 ? "#fff200" : "currentColor";
+    }
+  
+    function addToCart(itemName, itemPrice) {
+      // Создаем новый элемент для товара
+      const newItem = document.createElement("div");
+      newItem.classList.add("dropdown-item");
+      newItem.innerHTML = `
+        <span class="item-name">${itemName}</span>
+        <span class="item-quantity">1</span>
+        <span class="item-price">${itemPrice}</span> Р
+        <button class="decrease">-</button>
+        <button class="increase">+</button>
+        <button class="remove">Удалить</button>
+      `;
+  
+      // Добавляем товар в контейнер
+      cartItemsContainer.appendChild(newItem);
+  
+      // Обновляем общую сумму
+      cartTotal.add(itemPrice);
+      updateTotalDisplay();
+  
+      // Привязываем обработчики для кнопок управления
+      const decreaseButton = newItem.querySelector(".decrease");
+      const increaseButton = newItem.querySelector(".increase");
+      const removeButton = newItem.querySelector(".remove");
+  
+      let quantity = 1;
+  
+      decreaseButton.addEventListener("click", () => {
+        if (quantity > 1) {
+          quantity--;
+          cartTotal.subtract(itemPrice);
+          newItem.querySelector(".item-quantity").textContent = quantity;
+          updateTotalDisplay();
+        }
+      });
+  
+      increaseButton.addEventListener("click", () => {
+        quantity++;
+        cartTotal.add(itemPrice);
+        newItem.querySelector(".item-quantity").textContent = quantity;
+        updateTotalDisplay();
+      });
+  
+      removeButton.addEventListener("click", () => {
+        cartTotal.subtract(quantity * itemPrice);
+        newItem.remove();
+        updateTotalDisplay();
+      });
+    }
+  
+    // Привязываем обработчики событий к кнопкам товаров
+    document.querySelectorAll(".b").forEach((button) => {
+      button.addEventListener("click", () => {
+        const itemName = button.getAttribute("data-name");
+        const itemPrice = +button.getAttribute("data-price");
+        addToCart(itemName, itemPrice);
+      });
+    });
   }
-
-  const cartTotal = new Accumulator(0); 
-
-  function addToCart(itemName, itemPrice) {
-  // Создаем новый элемент для товара
-  const newItem = document.createElement("div");
-  newItem.classList.add("dropdown-item");
-  newItem.textContent = `${itemName} - ${itemPrice} Р`;
-
-  // Добавляем товар в контейнер
-  cartItemsContainer.appendChild(newItem);
-
-  // Обновляем общую сумму
-  cartTotal.value += itemPrice;
-  const cart = document.querySelector(".bell");
-  const carticon = cart.querySelector('svg');
-  if(cartTotal.value > 0){
-    carticon.style.color = '#fff200';
-  }
-  document.querySelector(".total").textContent = `Итого: ${cartTotal.value} Р`;
-}
-
-// Привязываем обработчики событий к кнопкам товаров
-document.querySelectorAll(".b").forEach((button) => {
-  button.addEventListener("click", () => {
-      const itemName = button.getAttribute("data-name");
-      const itemPrice = +button.getAttribute("data-price");
-      addToCart(itemName, itemPrice);
-  });
+  
 });
-}
-// Функция для добавления товара в корзину
-
