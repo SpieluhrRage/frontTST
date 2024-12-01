@@ -126,11 +126,32 @@ nav {
     height: 50px;
     width: 350px;
     padding: 8px;
-    border: none;
+    border-bottom: 1px solid black;
     border-radius: 0;
     background-color:#8f670b;
     box-shadow: none;
     transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
+}
+.total{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 50px;
+    width: 350px;
+    padding: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color:#8f670b;
+    box-shadow: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    
+}
+.dropdown-item:first-child{
+    border-top: 1px solid black;;
 }
 
 .item-name{
@@ -152,10 +173,23 @@ nav {
     grid-area: delete;
 }
 
-.dropdown-item:last-child{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.increase,
+.decrease,
+.remove{
+    background-color: transparent;
+    color: white;
+    text-decoration: solid;
+    font-size: larger;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
 }
+.increase:hover,
+.decrease:hover,
+.remove:hover{
+    background-color: #8f670b;
+}
+
+
 
 .icon{
     width: 366px;
@@ -179,7 +213,7 @@ nav {
 }
 
 
-.dropdown-item:hover{
+.dropdown-item:not(.total):hover{
     background-color: #e6a200;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px) scale(1.05);
@@ -753,6 +787,11 @@ nav ul {
     }
 }
 
+@media (max-width: 1550px){
+    .cart-total{
+        display: none;
+    }
+}
 @media (max-width: 1100px) {
     .cont {
         width: auto;
@@ -812,22 +851,10 @@ nav ul {
         transition: opacity 0.5s ease;
     } 
      
-    .dropdown-item{
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        height: 50px;
-        width: 200px;
-        padding: 8px;
-        border: none;
-        background-color:#8f670b;
-        border-radius: 0;
-        box-shadow: none;
-        transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
-    }
+    
     
     .icon{
-        width:216px;
+        width:366px;
         background-color: none;
         border-radius: 10px;
         display:flex;

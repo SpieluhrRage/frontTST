@@ -1,5 +1,5 @@
 "use strict";
-/*document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Всплывающее окно при загрузке сайта
   const login = prompt("Введите ваш логин:");
   if (login === "Админ") {
@@ -16,7 +16,65 @@
   } else {
       alert("Я вас не знаю");
   }
-});*/
+});
+
+function isEmpty(input) {
+  return input.trim() === "";
+}
+
+// Генерация буквенной капчи
+function generateLetterCaptcha() {
+  const length = 5;
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  let captcha = "";
+
+  for (let i = 0; i < length; i++) {
+    captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+
+  return captcha;
+}
+
+// Генерация математической капчи
+function generateMathCaptcha() {
+  const num1 = Math.floor(Math.random() * 10);
+  const num2 = Math.floor(Math.random() * 10);
+  return { question: `${num1} + ${num2}`, answer: num1 + num2 };
+}
+
+// Основная функция проверки
+function runCaptcha() {
+  let captcha = generateLetterCaptcha();
+  let userInput = prompt(`Введите капчу: ${captcha}`);
+
+  if (isEmpty(userInput)) {
+    alert("Поле не должно быть пустым!");
+    return runCaptcha();
+  }
+
+  if (userInput !== captcha) {
+    alert("Неправильно! Переключаемся на числовую капчу.");
+
+    
+    const mathCaptcha = generateMathCaptcha();
+    userInput = prompt(`Решите пример: ${mathCaptcha.question}`);
+
+    if (isEmpty(userInput)) {
+      alert("Поле не должно быть пустым!");
+      return runCaptcha();
+    }
+
+    if (parseInt(userInput) !== mathCaptcha.answer) {
+      alert("Неправильно! Попробуйте ещё раз.");
+      return runCaptcha(); 
+    }
+  }
+
+  alert("Капча пройдена успешно! Форма отправлена.");
+}
+
+
+runCaptcha();
 
 
 
