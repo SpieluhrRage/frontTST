@@ -1,5 +1,5 @@
 "use strict";
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   // Всплывающее окно при загрузке сайта
   const login = prompt("Введите ваш логин:");
   if (login === "Админ") {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
       alert("Я вас не знаю");
   }
-});
+});*/
 
 
 
@@ -119,8 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
       newItem.classList.add("dropdown-item");
       newItem.innerHTML = `
         <span class="item-name">${itemName}</span>
-        <span class="item-quantity">1</span>
-        <span class="item-price">${itemPrice}</span> Р
+        <span class="item-quantity">1 шт</span>
+        <span class="item-price">${itemPrice}</span> 
         <button class="decrease">-</button>
         <button class="increase">+</button>
         <button class="remove">Удалить</button>
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (quantity > 1) {
           quantity--;
           cartTotal.subtract(itemPrice);
-          newItem.querySelector(".item-quantity").textContent = quantity;
+          newItem.querySelector(".item-quantity").textContent = `${quantity} шт`;
           updateTotalDisplay();
         }
       });
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
       increaseButton.addEventListener("click", () => {
         quantity++;
         cartTotal.add(itemPrice);
-        newItem.querySelector(".item-quantity").textContent = quantity;
+        newItem.querySelector(".item-quantity").textContent = `${quantity} шт`;
         updateTotalDisplay();
       });
   
