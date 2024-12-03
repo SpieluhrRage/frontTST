@@ -126,6 +126,11 @@ nav {
     box-shadow: none;
     transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
 }
+.dropdown-item:first-child{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top: 1px solid black;;
+}
 
 .dropdown-item:last-child{
     border-bottom-left-radius: 10px;
@@ -133,7 +138,7 @@ nav {
 }
 
 .icon{
-    width: 216px;
+    width: 50px;
     background-color: none;
     border-radius: 10px;
     display:flex;
@@ -142,16 +147,7 @@ nav {
     transition: background-color 0.5s;   
 }
 
-.notification:hover .icon{
-    background-color:#8f670b;
-    
-}
-.notification:hover .dropdown{
-    visibility: visible;
-    opacity: 1;
-    box-shadow:10px 10px 10px #212121;
-    
-}
+
 
 
 .dropdown-item:hover{
@@ -848,18 +844,6 @@ nav ul {
         transition: background-color 0.5s;   
     }
    
-    
-    
-    .notification:hover .icon{
-        background-color:#8f670b;
-        
-    }
-    .notification:hover .dropdown{
-        visibility: visible;
-        opacity: 1;
-        box-shadow:10px 10px 10px #212121;
-    }
-
      
     .menu {
         position: fixed;

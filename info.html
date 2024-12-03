@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О фестивалях</title>
+    <link rel="icon" type="image/svg+xml" href="clap.svg"> <!-- Фавиконка -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+
+    
+</head>
+<body class ="body">
+
+    <header>
+        <div class="header-container">
+            <img src="pathwhiteleft.svg" alt="Украшение в виде киноленты" class="logo left-logo"> <!-- Логотип слева -->
+            <h1 class="headerFont">К и н о ф е с т и в а л и</h1>
+            <img src="pathwhiteright.svg" alt="Украшение в виде киноленты" class="logo right-logo"> <!-- Логотип справа -->
+        </div>
+       
+    </header>
+    <nav>
+        <div class="notification">
+            <div class="icon">
+              <span class="bell"><img src="notif.svg"></span>
+            </div>
+            <div class="dropdown">
+              <div class="dropdown-item">1 List Item 1</div>
+              <div class="dropdown-item">2 List Item 2</div>
+              <div class="dropdown-item">3 List Item 3</div>
+              <div class="dropdown-item">4 List Item 4</div>
+            </div>
+        </div>
+        <p id="hiddenLogo" class="headerFont">Кинофестивали</p>
+        <p id="hiddenLog2" class="headerFont">КФ</p>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" id="bur" class="menu-icon">
+            <svg class="menu-icon-open" width="45" height="45" viewBox="0 0 330 250" fill="grey" xmlns="http://www.w3.org/2000/svg">
+                <rect width="332" height="46" rx="23" fill="#FFB700"/>
+                <rect y="210" width="332" height="46" rx="23" fill="#FFB700"/>
+                <rect y="105" width="332" height="46" rx="23" fill="#FFB700"/>
+            </svg>
+            <svg class="menu-icon-close" width="45" height="45" viewBox="0 0 375 375" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="42.4451" y="0.261749" width="470" height="59.6562" rx="29.8281" transform="rotate(45 42.4451 0.261749)" fill="#FFB700"/>
+                <rect y="332.34" width="470" height="59.6562" rx="29.8281" transform="rotate(-45 0 332.34)" fill="#FFB700"/>
+            </svg>
+        </label>
+        <ul class="menu" id="menu">
+            <li><a href="index.html">На главную</a></li>
+           <li><a href="news.html">Новости</a></li>
+            <li><a href="shop.html">Магазин</a></li>
+            <li><a href="reviews.html">Рецензии</a></li>
+            <li><a href="#registration-overlay">Регистрация</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+          <style>
+            .festival-guide {
+              padding: 20px;
+              display: grid;
+              gap: 20px;
+            }
+        
+            .festival {
+              display: flex;
+              align-items: center;
+              background: #f4f4f4;
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              padding: 20px;
+              transition: transform 0.3s, box-shadow 0.3s;
+            }
+        
+            .festival:hover {
+              transform: scale(1.03);
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+        
+            .festival img {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              margin-right: 20px;
+            }
+        
+            .festival-details {
+              flex: 1;
+            }
+        
+            .festival-title {
+              font-size: 1.5em;
+              margin: 0 0 10px;
+              color: #333;
+            }
+        
+            .festival-info {
+              margin: 0 0 10px;
+              font-size: 1em;
+              color: #555;
+            }
+        
+            .festival-link {
+              text-decoration: none;
+              font-weight: bold;
+              color: #ff6600;
+              transition: color 0.3s;
+            }
+        
+            .festival-link:hover {
+              color: #cc5200;
+            }
+          </style>
+          <main class="festival-guide">
+            <div class="festival">
+              <img src="berlinale.jpg" alt="Логотип Берлинале">
+              <div class="festival-details">
+                <h2 class="festival-title">Берлинале</h2>
+                <p class="festival-info">Место: Берлин, Германия<br>Даты: Февраль</p>
+                <p class="festival-info">Крупнейший фестиваль в Германии, с фокусом на мировое киноискусство.</p>
+                <a href="berlinale.html" class="festival-link">Подробнее</a>
+              </div>
+            </div>
+        
+            <div class="festival">
+              <img src="locarno.jpg" alt="Логотип Локарно">
+              <div class="festival-details">
+                <h2 class="festival-title">Локарно</h2>
+                <p class="festival-info">Место: Локарно, Швейцария<br>Даты: Август</p>
+                <p class="festival-info">Фестиваль с особым акцентом на авторское и независимое кино.</p>
+                <a href="locarno.html" class="festival-link">Подробнее</a>
+              </div>
+            </div>
+        
+            <div class="festival">
+              <img src="cannes.jpg" alt="Логотип Каннского фестиваля">
+              <div class="festival-details">
+                <h2 class="festival-title">Каннский кинофестиваль</h2>
+                <p class="festival-info">Место: Канны, Франция<br>Даты: Май</p>
+                <p class="festival-info">Один из самых престижных кинофестивалей мира с красной дорожкой.</p>
+                <a href="cannes.html" class="festival-link">Подробнее</a>
+              </div>
+            </div>
+        
+            <div class="festival">
+              <img src="moscow.jpg" alt="Логотип Московского фестиваля">
+              <div class="festival-details">
+                <h2 class="festival-title">Московский кинофестиваль</h2>
+                <p class="festival-info">Место: Москва, Россия<br>Даты: Июнь</p>
+                <p class="festival-info">Старейший фестиваль в России, открывающий новые таланты.</p>
+                <a href="moscow.html" class="festival-link">Подробнее</a>
+              </div>
+            </div>
+        
+            <div class="festival">
+              <img src="spb.jpg" alt="Логотип Санкт-Петербургского фестиваля">
+              <div class="festival-details">
+                <h2 class="festival-title">Санкт-Петербургский кинофестиваль</h2>
+                <p class="festival-info">Место: Санкт-Петербург, Россия<br>Даты: Сентябрь</p>
+                <p class="festival-info">Молодой фестиваль с уникальным подходом к современному кино.</p>
+                <a href="spb.html" class="festival-link">Подробнее</a>
+              </div>
+            </div>
+    </main>
+    
+
+    
+    <footer>
+        <section id="contact" class="contact">
+            <div id = "aboutus">
+                <h3>О нас</h3>
+                <p>This page is brought to you thanks to the support of music, coffee and cigarettes. For additional information please  contact me.
+                    <p class="lyrics">
+                        Strangers passing in the street<br>
+                        By chance, two separate glances meet<br>
+                        And I am you and what I see is me<br>
+                        And do I take you by the hand<br>
+                        And lead you through the land<br>
+                        And help me understand the best I can?<br>
+                    <p>
+                </p>
+            </div>
+
+            <div id="contact-info">
+                <h3>Контактная информация</h3>
+                <address>
+                    <p><i>Позвоните мне!</i> <a class = "cnt" href="tel:88005553535">88005553535</a></p>
+                    <p><i>Напишите мне!</i> <a class = "cnt" href="mailto:gered372@gmail.com?subject=Hello">gered372@gmail.com</a></p>
+                </address>
+                <div id="socialnetworks">
+                    <a href="https://youtu.be/CHOza45c57w?si=iaAxhUjg0VpGMk6E" target="_blank" class ="gradient-icon yt"><img id="slog" src="ytlogo.svg" ></a>
+                    <a href="https://t.me/MomentaryLapseOfReason" target="_blank" class="gradient-icon tg"><img  id="slog" src="tglogo.svg"></a>
+                    
+                </div>
+            </div>
+
+            <div id="shop">
+                <a href="shop.html"><h3>Потратить деньги</h3></a>
+            <p>Nothing to see here at the moment. Stay tuned!</p>
+            </div>
+
+            <div id="copyright">
+                <p><small>&copy; 2024 Кинофестивали. Все права защищены.</small></p>
+            </div>
+            
+        </section>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>

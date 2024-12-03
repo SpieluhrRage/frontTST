@@ -1,80 +1,4 @@
 "use strict";
-/*document.addEventListener("DOMContentLoaded", () => {
-  // Всплывающее окно при загрузке сайта
-  const login = prompt("Введите ваш логин:");
-  if (login === "Админ") {
-      const password = prompt("Введите пароль:");
-      if (password === "Я главный") {
-          alert("Здравствуйте!");
-      } else if (!password) {
-          alert("Отменено");
-      } else {
-          alert("Неверный пароль");
-      }
-  } else if (!login) {
-      alert("Отменено");
-  } else {
-      alert("Я вас не знаю");
-  }
-});
-
-function isEmpty(input) {
-  return input.trim() === "";
-}
-
-// Генерация буквенной капчи
-function generateLetterCaptcha() {
-  const length = 5;
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  let captcha = "";
-
-  for (let i = 0; i < length; i++) {
-    captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-
-  return captcha;
-}
-
-// Генерация математической капчи
-function generateMathCaptcha() {
-  const num1 = Math.floor(Math.random() * 10);
-  const num2 = Math.floor(Math.random() * 10);
-  return { question: `${num1} + ${num2}`, answer: num1 + num2 };
-}
-
-// Основная функция проверки
-function runCaptcha() {
-  let captcha = generateLetterCaptcha();
-  let userInput = prompt(`Введите капчу: ${captcha}`);
-
-  if (isEmpty(userInput)) {
-    alert("Поле не должно быть пустым!");
-    return runCaptcha();
-  }
-
-  if (userInput !== captcha) {
-    alert("Неправильно! Переключаемся на числовую капчу.");
-
-    
-    const mathCaptcha = generateMathCaptcha();
-    userInput = prompt(`Решите пример: ${mathCaptcha.question}`);
-
-    if (isEmpty(userInput)) {
-      alert("Поле не должно быть пустым!");
-      return runCaptcha();
-    }
-
-    if (parseInt(userInput) !== mathCaptcha.answer) {
-      alert("Неправильно! Попробуйте ещё раз.");
-      return runCaptcha(); 
-    }
-  }
-
-  alert("Капча пройдена успешно! Форма отправлена.");
-}
-
-
-runCaptcha();*/
 
 document.querySelectorAll('.menu a').forEach(item => {
     item.addEventListener('click', () => {
@@ -188,4 +112,21 @@ if (cartItemsContainer) {
   toggleDropdownVisibility();
 }
 
+const container = document.querySelector('.cont');
+    const sortAscButton = document.getElementById('sort-asc');
+    const sortDescButton = document.getElementById('sort-desc');
 
+    function sortItems(order) {
+      const items = Array.from(container.children);
+      items.sort((a, b) => {
+        const priceA = parseInt(a.getAttribute('data-price'));
+        const priceB = parseInt(b.getAttribute('data-price'));
+        return order === 'asc' ? priceA - priceB : priceB - priceA;
+      });
+
+      // Переставляем элементы в DOM
+      items.forEach(item => container.appendChild(item));
+    }
+
+    sortAscButton.addEventListener('click', () => sortItems('asc'));
+    sortDescButton.addEventListener('click', () => sortItems('desc'));
