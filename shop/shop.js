@@ -38,12 +38,35 @@ if (cartItemsContainer) {
 
   
   function toggleDropdownVisibility() {
+    const bell = document.querySelector('.bell');
+      const dropdown = document.querySelector('.dropdown');
+      
+      // Функция для показа dropdown
+      function showDropdown() {
+        dropdown.style.visibility = 'visible';
+        dropdown.style.opacity = '1';
+      }
+      
+      // Функция для скрытия dropdown
+      function hideDropdown() {
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.opacity = '0';
+      }
     if (cartItemsContainer.children.length > 0) {
-      dropdown.style.visibility = 'visible';
-      dropdown.style.opacity = '1';
+      // Добавляем события
+      bell.addEventListener('mouseenter', showDropdown); // Показываем при наведении на bell
+      dropdown.addEventListener('mouseleave', hideDropdown); // Скрываем при уходе с dropdown
+      
+      // Дополнительно: скрытие, если курсор уходит с bell
+      bell.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+          if (!dropdown.matches(':hover')) {
+            hideDropdown();
+          }
+        }, 200); // Короткая задержка для плавности
+      });
     } else {
-      dropdown.style.visibility = 'hidden';
-      dropdown.style.opacity = '0';
+      hideDropdown();
     }
   }
 
@@ -55,78 +78,135 @@ if (cartItemsContainer) {
   }
 
   function addToCart(itemName, itemPrice) {
-    const newItem = document.createElement("div");
-    newItem.classList.add("dropdown-item");
-    newItem.innerHTML = `
-      <span class="item-name">${itemName}</span>
-      <span class="item-quantity">1 шт</span>
-      <span class="item-price">${itemPrice}</span> 
-      <button class="decrease">-</button>
-      <button class="increase">+</button>
-      <button class="remove">Удалить</button>
-    `;
+    // Проверяем, есть ли уже товар в корзине
+    let existingItem = Array.from(cartItemsContainer.children).find(item => 
+        item.querySelector(".item-name").textContent === itemName
+    );
 
-    cartItemsContainer.appendChild(newItem);
-    cartTotal.add(itemPrice);
-    updateTotalDisplay();
+    if (existingItem) {
+        // Если товар уже есть, увеличиваем его количество
+        const quantityElement = existingItem.querySelector(".item-quantity");
+        let quantity = parseInt(quantityElement.textContent);
+        quantity++;
+        quantityElement.textContent = `${quantity} шт`;
 
-    const decreaseButton = newItem.querySelector(".decrease");
-    const increaseButton = newItem.querySelector(".increase");
-    const removeButton = newItem.querySelector(".remove");
+        // Обновляем итоговую сумму
+        cartTotal.add(itemPrice);
+    } else {
+        // Если товара нет, создаём новый элемент
+        const newItem = document.createElement("div");
+        newItem.classList.add("dropdown-item");
+        newItem.innerHTML = `
+            <span class="item-name">${itemName}</span>
+            <span class="item-quantity">1 шт</span>
+            <span class="item-price">${itemPrice} Р</span>
+            <button class="decrease">-</button>
+            <button class="increase">+</button>
+            <button class="remove">Удалить</button>
+        `;
 
-    let quantity = 1;
+        cartItemsContainer.appendChild(newItem);
 
-    decreaseButton.addEventListener("click", () => {
-      if (quantity > 1) {
-        quantity--;
-        cartTotal.subtract(itemPrice);
-        newItem.querySelector(".item-quantity").textContent = `${quantity} шт`;
-        updateTotalDisplay();
-      }
-    });
+        // Обновляем итоговую сумму
+        cartTotal.add(itemPrice);
 
-    increaseButton.addEventListener("click", () => {
-      quantity++;
-      cartTotal.add(itemPrice);
-      newItem.querySelector(".item-quantity").textContent = `${quantity} шт`;
-      updateTotalDisplay();
-    });
+        // Получаем кнопки для управления товаром
+        const decreaseButton = newItem.querySelector(".decrease");
+        const increaseButton = newItem.querySelector(".increase");
+        const removeButton = newItem.querySelector(".remove");
 
-    removeButton.addEventListener("click", () => {
-      cartTotal.subtract(quantity * itemPrice);
-      newItem.remove();
-      updateTotalDisplay();
-    });
-  }
+        // Добавляем обработчик для уменьшения количества
+        decreaseButton.addEventListener("click", () => {
+            const quantityElement = newItem.querySelector(".item-quantity");
+            let quantity = parseInt(quantityElement.textContent);
 
-  
-  document.querySelectorAll(".b").forEach((button) => {
-    button.addEventListener("click", () => {
-      const itemName = button.getAttribute("data-name");
-      const itemPrice = +button.getAttribute("data-price");
-      addToCart(itemName, itemPrice);
-    });
-  });
+            if (quantity > 1) {
+                quantity--;
+                quantityElement.textContent = `${quantity} шт`;
 
-  
-  toggleDropdownVisibility();
-}
+                // Обновляем итоговую сумму
+                cartTotal.subtract(itemPrice);
+            } else {
+                // Если количество стало 0, удаляем товар
+                cartTotal.subtract(itemPrice);
+                newItem.remove();
+            }
 
-const container = document.querySelector('.cont');
-    const sortAscButton = document.getElementById('sort-asc');
-    const sortDescButton = document.getElementById('sort-desc');
+            updateTotalDisplay();
+        });
 
-    function sortItems(order) {
-      const items = Array.from(container.children);
-      items.sort((a, b) => {
-        const priceA = parseInt(a.getAttribute('data-price'));
-        const priceB = parseInt(b.getAttribute('data-price'));
-        return order === 'asc' ? priceA - priceB : priceB - priceA;
-      });
+        // Добавляем обработчик для увеличения количества
+        increaseButton.addEventListener("click", () => {
+            const quantityElement = newItem.querySelector(".item-quantity");
+            let quantity = parseInt(quantityElement.textContent);
+            quantity++;
+            quantityElement.textContent = `${quantity} шт`;
 
-      // Переставляем элементы в DOM
-      items.forEach(item => container.appendChild(item));
+            // Обновляем итоговую сумму
+            cartTotal.add(itemPrice);
+            updateTotalDisplay();
+        });
+
+        // Добавляем обработчик для удаления товара
+        removeButton.addEventListener("click", () => {
+            const quantityElement = newItem.querySelector(".item-quantity");
+            let quantity = parseInt(quantityElement.textContent);
+
+            // Уменьшаем итоговую сумму на количество удалённого товара
+            cartTotal.subtract(quantity * itemPrice);
+            newItem.remove();
+            updateTotalDisplay();
+        });
     }
 
-    sortAscButton.addEventListener('click', () => sortItems('asc'));
-    sortDescButton.addEventListener('click', () => sortItems('desc'));
+    // Обновляем отображение итоговой суммы
+    updateTotalDisplay();
+}
+
+// Привязываем обработчики событий к кнопкам добавления
+document.querySelectorAll(".b").forEach(button => {
+    button.addEventListener("click", () => {
+        const itemName = button.getAttribute("data-name");
+        const itemPrice = +button.getAttribute("data-price");
+        addToCart(itemName, itemPrice);
+    });
+});
+
+toggleDropdownVisibility();
+
+
+}
+
+
+
+const container = document.querySelector('.cont');
+const sortToggleButton = document.getElementById('sort-toggle');
+const sortIcon = document.getElementById('sort-icon');
+
+function sortItems(order) {
+    const items = Array.from(container.children);
+
+    // Сортируем товары по цене
+    items.sort((a, b) => {
+        const priceA = parseInt(a.querySelector('.b').getAttribute('data-price'), 10);
+        const priceB = parseInt(b.querySelector('.b').getAttribute('data-price'), 10);
+        return order === 'asc' ? priceA - priceB : priceB - priceA;
+    });
+
+    // Переставляем элементы в DOM
+    items.forEach(item => container.appendChild(item));
+}
+
+sortToggleButton.addEventListener('click', () => {
+    const currentOrder = sortToggleButton.getAttribute('data-order');
+    const newOrder = currentOrder === 'asc' ? 'desc' : 'asc';
+
+    // Сортируем товары
+    sortItems(newOrder);
+
+    // Обновляем атрибут, текст и иконку кнопки
+    sortToggleButton.setAttribute('data-order', newOrder);
+    sortToggleButton.innerHTML = newOrder === 'asc' 
+        ? `<span id="sort-icon">▲</span> По возрастанию цены`
+        : `<span id="sort-icon">▼</span> По убыванию цены`;
+});
