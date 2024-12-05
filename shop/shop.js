@@ -176,12 +176,10 @@ toggleDropdownVisibility();
 
 
 }
-
-
-
 const container = document.querySelector('.cont');
 const sortToggleButton = document.getElementById('sort-toggle');
 const sortIcon = document.getElementById('sort-icon');
+const sortText = document.getElementById('sort-text');
 
 function sortItems(order) {
     const items = Array.from(container.children);
@@ -206,7 +204,8 @@ sortToggleButton.addEventListener('click', () => {
 
     // Обновляем атрибут, текст и иконку кнопки
     sortToggleButton.setAttribute('data-order', newOrder);
-    sortToggleButton.innerHTML = newOrder === 'asc' 
-        ? `<span id="sort-icon">▲</span> По возрастанию цены`
-        : `<span id="sort-icon">▼</span> По убыванию цены`;
+    sortText.textContent = newOrder === 'asc' 
+        ? 'По возрастанию цены'
+        : 'По убыванию цены';
+    sortIcon.style.transform = newOrder === 'asc' ? 'scaleY(1)' : 'scaleY(-1)';
 });
