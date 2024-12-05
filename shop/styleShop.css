@@ -879,11 +879,12 @@ nav ul {
         position: fixed;
         width: 100%;
         height: 100%;
-        margin: 64px 0px 0px 0px;
+        margin: 84px 0px 0px 0px;
+        gap: 10px;
         background-color: rgb(33, 33, 33);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content:start;
         align-items: center;
         transition: opacity 0.3s ease;
         opacity: 0;
