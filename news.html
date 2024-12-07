@@ -54,12 +54,23 @@
     
     <main>
             <style>
-            
-
+         
         .timeline-container {
             width: 90%;
             margin: 20px auto;
-            position: relative;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .controls select, .controls button {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         .timeline {
@@ -75,12 +86,12 @@
             margin: 20px 0;
             padding: 20px;
             width: 90%;
-            background: white;
+            background: rgb(129, 129, 129);
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             position: relative;
             opacity: 0;
             transform: translateY(50px);
@@ -100,7 +111,7 @@
             width: 15px;
             height: 15px;
             background-color: #007BFF;
-            border: 3px solid white;
+            border: 3px solid rgb(128, 128, 128);
             border-radius: 50%;
             z-index: 1;
         }
@@ -109,7 +120,7 @@
             flex-shrink: 0;
             font-weight: bold;
             color: #007BFF;
-            font-size: 14px;
+            font-size: 16px;
             text-align: center;
         }
 
@@ -127,8 +138,8 @@
         }
 
         .event-image {
-            width: 80px;
-            height: 80px;
+            width: 150px;
+            height: 150px;
             border-radius: 5px;
             overflow: hidden;
             flex-shrink: 0;
@@ -148,17 +159,28 @@
 
             .event-image {
                 width: 100%;
-                height: 150px;
+                height: 200px;
             }
         }
+
     </style>
     <div class="timeline-container">
         <h1>News Timeline</h1>
-        <div class="timeline">
-            <!-- Events go here -->
-            <div class="timeline-event">
+        <div class="controls">
+            <select id="festival-filter">
+                <option value="all">All Festivals</option>
+                <option value="Berlin">Berlin Film Festival</option>
+                <option value="Locarno">Locarno Festival</option>
+                <option value="Cannes">Cannes Film Festival</option>
+                <option value="Moscow">Moscow Film Festival</option>
+                <option value="StPetersburg">St. Petersburg Film Festival</option>
+            </select>
+            <button id="sort-toggle" data-order="asc">Sort: Old to New</button>
+        </div>
+        <div class="timeline" id="timeline">
+            <div class="timeline-event" data-festival="Berlin" data-date="2024-02-15">
                 <div class="event-image">
-                    <img src="https://via.placeholder.com/80" alt="Berlin Film Festival">
+                    <img src="https://via.placeholder.com/150" alt="Berlin Film Festival">
                 </div>
                 <div class="event-date">2024-02-15</div>
                 <div class="event-description">
@@ -166,9 +188,9 @@
                 </div>
             </div>
 
-            <div class="timeline-event">
+            <div class="timeline-event" data-festival="Locarno" data-date="2024-03-05">
                 <div class="event-image">
-                    <img src="https://via.placeholder.com/80" alt="Locarno Festival">
+                    <img src="https://via.placeholder.com/150" alt="Locarno Festival">
                 </div>
                 <div class="event-date">2024-03-05</div>
                 <div class="event-description">
@@ -176,9 +198,9 @@
                 </div>
             </div>
 
-            <div class="timeline-event">
+            <div class="timeline-event" data-festival="Cannes" data-date="2024-05-15">
                 <div class="event-image">
-                    <img src="https://via.placeholder.com/80" alt="Cannes Film Festival">
+                    <img src="https://via.placeholder.com/150" alt="Cannes Film Festival">
                 </div>
                 <div class="event-date">2024-05-15</div>
                 <div class="event-description">
@@ -186,9 +208,9 @@
                 </div>
             </div>
 
-            <div class="timeline-event">
+            <div class="timeline-event" data-festival="Moscow" data-date="2024-06-20">
                 <div class="event-image">
-                    <img src="https://via.placeholder.com/80" alt="Moscow Film Festival">
+                    <img src="https://via.placeholder.com/150" alt="Moscow Film Festival">
                 </div>
                 <div class="event-date">2024-06-20</div>
                 <div class="event-description">
@@ -196,38 +218,87 @@
                 </div>
             </div>
 
-            <div class="timeline-event">
+            <div class="timeline-event" data-festival="StPetersburg" data-date="2024-08-10">
                 <div class="event-image">
-                    <img src="https://via.placeholder.com/80" alt="St. Petersburg Film Festival">
+                    <img src="https://via.placeholder.com/150" alt="St. Petersburg Film Festival">
                 </div>
                 <div class="event-date">2024-08-10</div>
                 <div class="event-description">
                     <p>The <strong>St. Petersburg Film Festival</strong> showcases an impressive array of indie films. Discover more <a href="#">here</a>.</p>
                 </div>
             </div>
+            <div class="timeline-event" data-festival="Locarno" data-date="2024-09-05">
+                <div class="event-image">
+                    <img src="https://via.placeholder.com/150" alt="Locarno Festival">
+                </div>
+                <div class="event-date">2024-09-05</div>
+                <div class="event-description">
+                    <p>The <strong>Locarno Festival</strong> announces its winners. See the details <a href="#">here</a>.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-        <script>
-            const events = document.querySelectorAll('.timeline-event');
-        
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                const revealPoint = 150;
-            
-                events.forEach(event => {
-                    const eventTop = event.getBoundingClientRect().top;
-                
-                    if (eventTop < windowHeight - revealPoint) {
-                        event.classList.add('visible');
-                    } else {
-                        event.classList.remove('visible');
-                    }
-                });
-            };
-        
-            window.addEventListener('scroll', revealOnScroll);
-        </script>
+
+
+    <script>
+             const events = document.querySelectorAll('.timeline-event');
+        const timeline = document.getElementById('timeline');
+        const sortToggle = document.getElementById('sort-toggle');
+        const filterSelect = document.getElementById('festival-filter');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150;
+
+            events.forEach(event => {
+                const eventTop = event.getBoundingClientRect().top;
+
+                if (eventTop < windowHeight - revealPoint) {
+                    event.classList.add('visible');
+                } else {
+                    event.classList.remove('visible');
+                }
+            });
+        };
+
+        const sortEvents = (order) => {
+            const sorted = Array.from(events).sort((a, b) => {
+                const dateA = new Date(a.dataset.date);
+                const dateB = new Date(b.dataset.date);
+                return order === 'asc' ? dateA - dateB : dateB - dateA;
+            });
+
+            timeline.innerHTML = '';
+            sorted.forEach(event => timeline.appendChild(event));
+        };
+
+        const filterEvents = (festival) => {
+            events.forEach(event => {
+                if (festival === 'all' || event.dataset.festival === festival) {
+                    event.style.display = '';
+                } else {
+                    event.style.display = 'none';
+                }
+            });
+        };
+
+        sortToggle.addEventListener('click', () => {
+            const order = sortToggle.dataset.order;
+            const newOrder = order === 'asc' ? 'desc' : 'asc';
+            sortToggle.dataset.order = newOrder;
+            sortToggle.textContent = `Sort: ${newOrder === 'asc' ? 'Old to New' : 'New to Old'}`;
+            sortEvents(newOrder);
+        });
+
+        filterSelect.addEventListener('change', (e) => {
+            filterEvents(e.target.value);
+        });
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+    </script>
 
         
     </main>
