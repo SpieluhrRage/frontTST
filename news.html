@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <link rel="icon" type="image/svg+xml" href="clap.svg"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+
+    
+</head>
+<body class ="body">
+
+    <header>
+        <div class="header-container">
+            <img src="pathwhiteleft.svg" alt="Украшение в виде киноленты" class="logo left-logo"> <!-- Логотип слева -->
+            <h1 class="headerFont">Кинофестивали</h1>
+            <img src="pathwhiteright.svg" alt="Украшение в виде киноленты" class="logo right-logo"> <!-- Логотип справа -->
+        </div>
+       
+    </header>
+    <nav>
+        <p id="hiddenLogo" class="headerFont">Кинофестивали</p>
+        <p id="hiddenLog2" class="headerFont">КФ</p>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" id="bur" class="menu-icon">
+            <svg class="menu-icon-open" width="45" height="45" viewBox="0 0 330 250" fill="grey" xmlns="http://www.w3.org/2000/svg">
+                <rect width="332" height="46" rx="23" fill="#FFB700"/>
+                <rect y="210" width="332" height="46" rx="23" fill="#FFB700"/>
+                <rect y="105" width="332" height="46" rx="23" fill="#FFB700"/>
+            </svg>
+            <svg class="menu-icon-close" width="45" height="45" viewBox="0 0 375 375" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="42.4451" y="0.261749" width="470" height="59.6562" rx="29.8281" transform="rotate(45 42.4451 0.261749)" fill="#FFB700"/>
+                <rect y="332.34" width="470" height="59.6562" rx="29.8281" transform="rotate(-45 0 332.34)" fill="#FFB700"/>
+            </svg>
+        </label>
+        <ul class="menu" id="menu">
+           <li><a href="index.html">На главную</a></li>
+            <li><a href="shop.html">Магазин</a></li>
+            <li><a href="info.html">О фестивалях</a></li>
+            <li><a href="test.html">Карта</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+            <style>
+            
+
+        .timeline-container {
+            width: 90%;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            border-left: 2px solid #007BFF;
+            padding-left: 30px;
+        }
+
+        .timeline-event {
+            margin: 20px 0;
+            padding: 20px;
+            width: 90%;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .timeline-event.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -24px;
+            width: 15px;
+            height: 15px;
+            background-color: #007BFF;
+            border: 3px solid white;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .event-date {
+            flex-shrink: 0;
+            font-weight: bold;
+            color: #007BFF;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .event-description {
+            flex-grow: 1;
+        }
+
+        .event-description a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .event-description a:hover {
+            text-decoration: underline;
+        }
+
+        .event-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-event {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .event-image {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+    <div class="timeline-container">
+        <h1>News Timeline</h1>
+        <div class="timeline">
+            <!-- Events go here -->
+            <div class="timeline-event">
+                <div class="event-image">
+                    <img src="https://via.placeholder.com/80" alt="Berlin Film Festival">
+                </div>
+                <div class="event-date">2024-02-15</div>
+                <div class="event-description">
+                    <p><strong>Berlin Film Festival</strong> kicks off with a grand opening. Read more <a href="#">here</a>.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="event-image">
+                    <img src="https://via.placeholder.com/80" alt="Locarno Festival">
+                </div>
+                <div class="event-date">2024-03-05</div>
+                <div class="event-description">
+                    <p>The <strong>Locarno Festival</strong> announces its winners. See the details <a href="#">here</a>.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="event-image">
+                    <img src="https://via.placeholder.com/80" alt="Cannes Film Festival">
+                </div>
+                <div class="event-date">2024-05-15</div>
+                <div class="event-description">
+                    <p><strong>Cannes Film Festival</strong> opens its 77th edition with a lineup of world-class films. Check it out <a href="#">here</a>.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="event-image">
+                    <img src="https://via.placeholder.com/80" alt="Moscow Film Festival">
+                </div>
+                <div class="event-date">2024-06-20</div>
+                <div class="event-description">
+                    <p><strong>Moscow Film Festival</strong> welcomes filmmakers from across the globe. Learn more <a href="#">here</a>.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="event-image">
+                    <img src="https://via.placeholder.com/80" alt="St. Petersburg Film Festival">
+                </div>
+                <div class="event-date">2024-08-10</div>
+                <div class="event-description">
+                    <p>The <strong>St. Petersburg Film Festival</strong> showcases an impressive array of indie films. Discover more <a href="#">here</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script>
+            const events = document.querySelectorAll('.timeline-event');
+        
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const revealPoint = 150;
+            
+                events.forEach(event => {
+                    const eventTop = event.getBoundingClientRect().top;
+                
+                    if (eventTop < windowHeight - revealPoint) {
+                        event.classList.add('visible');
+                    } else {
+                        event.classList.remove('visible');
+                    }
+                });
+            };
+        
+            window.addEventListener('scroll', revealOnScroll);
+        </script>
+
+        
+    </main>
+    
+
+    
+    <footer>
+        <section id="contact" class="contact">
+            <div id = "aboutus">
+                <h3>О нас</h3>
+                <p>This page is brought to you thanks to the support of music, coffee and cigarettes. For additional information please  contact me.
+                    <p class="lyrics">
+                        Strangers passing in the street<br>
+                        By chance, two separate glances meet<br>
+                        And I am you and what I see is me<br>
+                        And do I take you by the hand<br>
+                        And lead you through the land<br>
+                        And help me understand the best I can?<br>
+                    <p>
+                </p>
+            </div>
+
+            <div id="contact-info">
+                <h3>Контактная информация</h3>
+                <address>
+                    <p><i>Позвоните мне!</i> <a class = "cnt" href="tel:88005553535">88005553535</a></p>
+                    <p><i>Напишите мне!</i> <a class = "cnt" href="mailto:gered372@gmail.com?subject=Hello">gered372@gmail.com</a></p>
+                </address>
+                <div id="socialnetworks">
+                    <a href="https://youtu.be/CHOza45c57w?si=iaAxhUjg0VpGMk6E" target="_blank" class ="gradient-icon yt"><img id="slog" src="ytlogo.svg" ></a>
+                    <a href="https://t.me/MomentaryLapseOfReason" target="_blank" class="gradient-icon tg"><img  id="slog" src="tglogo.svg"></a>
+                    
+                </div>
+            </div>
+
+            <div id="shop">
+                <a href="shop.html"><h3>Потратить деньги</h3></a>
+            <p>Nothing to see here at the moment. Stay tuned!</p>
+            </div>
+
+            <div id="copyright">
+                <p><small>&copy; 2024 Кинофестивали. Все права защищены.</small></p>
+            </div>
+            
+        </section>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>
