@@ -53,7 +53,7 @@
     </nav>
     
     <main>
-            <style>
+        <style>
          
         .timeline-container {
             width: 90%;
@@ -165,17 +165,17 @@
 
     </style>
     <div class="timeline-container">
-        <h1>News Timeline</h1>
+        <h1>Лента новостей</h1>
         <div class="controls">
             <select id="festival-filter">
-                <option value="all">All Festivals</option>
-                <option value="Berlin">Berlin Film Festival</option>
-                <option value="Locarno">Locarno Festival</option>
-                <option value="Cannes">Cannes Film Festival</option>
-                <option value="Moscow">Moscow Film Festival</option>
-                <option value="StPetersburg">St. Petersburg Film Festival</option>
+                <option value="all">Все фестивали</option>
+                <option value="Berlin">Берлинале</option>
+                <option value="Locarno">Локарно</option>
+                <option value="Cannes">Каннский фестиваль</option>
+                <option value="Moscow">Московский фестиваль</option>
+                <option value="StPetersburg">Санкт-Петербургский фестиваль</option>
             </select>
-            <button id="sort-toggle" data-order="asc">Sort: Old to New</button>
+            <button id="sort-toggle" data-order="asc">Сортировать: от старых к новым</button>
         </div>
         <div class="timeline" id="timeline">
             <div class="timeline-event" data-festival="Berlin" data-date="2024-02-15">
@@ -184,7 +184,7 @@
                 </div>
                 <div class="event-date">2024-02-15</div>
                 <div class="event-description">
-                    <p><strong>Berlin Film Festival</strong> kicks off with a grand opening. Read more <a href="#">here</a>.</p>
+                    <p><strong>Берлинале</strong> начался с грандиозного открытия. <a href="#">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -194,7 +194,7 @@
                 </div>
                 <div class="event-date">2024-03-05</div>
                 <div class="event-description">
-                    <p>The <strong>Locarno Festival</strong> announces its winners. See the details <a href="#">here</a>.</p>
+                    <p>На <strong>Локарно</strong> объявили победителей. <a href="#">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -204,7 +204,7 @@
                 </div>
                 <div class="event-date">2024-05-15</div>
                 <div class="event-description">
-                    <p><strong>Cannes Film Festival</strong> opens its 77th edition with a lineup of world-class films. Check it out <a href="#">here</a>.</p>
+                    <p><strong>Каннский фестиваль</strong> празднует своё 77 открытие подборкой прекрасных фильмов. <a href="#">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -214,7 +214,7 @@
                 </div>
                 <div class="event-date">2024-06-20</div>
                 <div class="event-description">
-                    <p><strong>Moscow Film Festival</strong> welcomes filmmakers from across the globe. Learn more <a href="#">here</a>.</p>
+                    <p><strong>Московский фестиваль</strong> приветствует деятелей кино со всего мира. <a href="#">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -224,7 +224,7 @@
                 </div>
                 <div class="event-date">2024-08-10</div>
                 <div class="event-description">
-                    <p>The <strong>St. Petersburg Film Festival</strong> showcases an impressive array of indie films. Discover more <a href="#">here</a>.</p>
+                    <p><strong>Санкт-Петербургский фестиваль</strong> представил необычную подборку независимых картин. <a href="#">Подробнее...</a></p>
                 </div>
             </div>
             <div class="timeline-event" data-festival="Locarno" data-date="2024-09-05">
@@ -233,7 +233,7 @@
                 </div>
                 <div class="event-date">2024-09-05</div>
                 <div class="event-description">
-                    <p>The <strong>Locarno Festival</strong> announces its winners. See the details <a href="#">here</a>.</p>
+                    <p><strong>Локарно</strong> в этом году хвастается звёздным актерским составом. <a href="#">Подробнее...</a></p>
                 </div>
             </div>
         </div>
@@ -242,7 +242,7 @@
 
 
     <script>
-             const events = document.querySelectorAll('.timeline-event');
+        const events = document.querySelectorAll('.timeline-event');
         const timeline = document.getElementById('timeline');
         const sortToggle = document.getElementById('sort-toggle');
         const filterSelect = document.getElementById('festival-filter');
@@ -287,7 +287,7 @@
             const order = sortToggle.dataset.order;
             const newOrder = order === 'asc' ? 'desc' : 'asc';
             sortToggle.dataset.order = newOrder;
-            sortToggle.textContent = `Sort: ${newOrder === 'asc' ? 'Old to New' : 'New to Old'}`;
+            sortToggle.textContent = `Сортировать: ${newOrder === 'asc' ? 'от старых к новым' : 'от новых к старым'}`;
             sortEvents(newOrder);
         });
 
@@ -309,7 +309,7 @@
         <section id="contact" class="contact">
             <div id = "aboutus">
                 <h3>О нас</h3>
-                <p>This page is brought to you thanks to the support of music, coffee and cigarettes. For additional information please  contact me.
+                <p>This page is brought to you thanks to the support of music and coffee For additional information please  contact me.
                     <p class="lyrics">
                         Strangers passing in the street<br>
                         By chance, two separate glances meet<br>
