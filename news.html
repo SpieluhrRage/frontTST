@@ -62,14 +62,18 @@
 
         .controls {
             display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
             justify-content: space-between;
             margin-bottom: 20px;
         }
 
         .controls select, .controls button {
+            color:#969696;
+            background-color: #333;
             padding: 8px 12px;
             font-size: 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #333;
             border-radius: 4px;
         }
 
@@ -78,8 +82,19 @@
             flex-direction: column;
             align-items: center;
             position: relative;
-            border-left: 2px solid #007BFF;
+            
+
+            
             padding-left: 30px;
+        }
+        .timeline::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            background: linear-gradient(to right, #ffb700, #333);
         }
 
         .timeline-event {
@@ -107,23 +122,12 @@
             transform: translateY(0);
         }
 
-        .timeline-event::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: -24px;
-            width: 15px;
-            height: 15px;
-            background-color: #007BFF;
-            border: 3px solid rgb(128, 128, 128);
-            border-radius: 50%;
-            z-index: 1;
-        }
+        
 
         .event-date {
             flex-shrink: 0;
             font-weight: bold;
-            color: #007BFF;
+            color: #ffb700;
             font-size: 16px;
             text-align: center;
         }
@@ -188,7 +192,7 @@
                 </div>
                 <div class="event-date">2024-02-15</div>
                 <div class="event-description">
-                    <p><strong>Берлинале</strong> начался с грандиозного открытия. <a href="#">Подробнее...</a></p>
+                    <p><strong>Берлинале</strong> начался с грандиозного открытия. <a href="https://www.berlinale.de/en/home.html">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -198,7 +202,7 @@
                 </div>
                 <div class="event-date">2024-03-05</div>
                 <div class="event-description">
-                    <p>На <strong>Локарно</strong> объявили победителей. <a href="#">Подробнее...</a></p>
+                    <p>На <strong>Локарно</strong> объявили победителей. <a href="https://www.locarnofestival.ch/home.html">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -208,7 +212,7 @@
                 </div>
                 <div class="event-date">2024-05-15</div>
                 <div class="event-description">
-                    <p><strong>Каннский фестиваль</strong> празднует своё 77 открытие подборкой прекрасных фильмов. <a href="#">Подробнее...</a></p>
+                    <p><strong>Каннский фестиваль</strong> празднует своё 77 открытие подборкой прекрасных фильмов. <a href="https://www.festival-cannes.com/en/">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -218,7 +222,7 @@
                 </div>
                 <div class="event-date">2024-06-20</div>
                 <div class="event-description">
-                    <p><strong>Московский фестиваль</strong> приветствует деятелей кино со всего мира. <a href="#">Подробнее...</a></p>
+                    <p><strong>Московский фестиваль</strong> приветствует деятелей кино со всего мира. <a href="https://fest.moscowfilmfestival.ru/">Подробнее...</a></p>
                 </div>
             </div>
 
@@ -228,7 +232,7 @@
                 </div>
                 <div class="event-date">2024-08-10</div>
                 <div class="event-description">
-                    <p><strong>Санкт-Петербургский фестиваль</strong> представил необычную подборку независимых картин. <a href="#">Подробнее...</a></p>
+                    <p><strong>Санкт-Петербургский фестиваль</strong> представил необычную подборку независимых картин. <a href="https://www.iffw.ru/en/">Подробнее...</a></p>
                 </div>
             </div>
             <div class="timeline-event" data-festival="Locarno" data-date="2024-09-05">
@@ -237,7 +241,7 @@
                 </div>
                 <div class="event-date">2024-09-05</div>
                 <div class="event-description">
-                    <p><strong>Локарно</strong> в этом году хвастается звёздным актерским составом. <a href="#">Подробнее...</a></p>
+                    <p><strong>Локарно</strong> в этом году хвастается звёздным актерским составом. <a href="https://www.locarnofestival.ch/home.html">Подробнее...</a></p>
                 </div>
             </div>
         </div>
