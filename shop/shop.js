@@ -176,6 +176,7 @@ toggleDropdownVisibility();
 
 
 }
+
 const container = document.querySelector('.cont');
 const sortToggleButton = document.getElementById('sort-toggle');
 const sortIcon = document.getElementById('sort-icon');

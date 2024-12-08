@@ -5,7 +5,7 @@ document.querySelectorAll('.menu a').forEach(item => {
         document.getElementById('menu-toggle').checked = false;
     });
 });
-
+/*
 const bell = document.querySelector('.bell');
 const dropdown = document.querySelector('.dropdown');
 const cartItemsContainer = document.querySelector(".cart-items");
@@ -111,5 +111,5 @@ if (cartItemsContainer) {
   
   toggleDropdownVisibility();
 }
-
+*/
 

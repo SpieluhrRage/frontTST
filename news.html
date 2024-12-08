@@ -86,16 +86,20 @@
             margin: 20px 0;
             padding: 20px;
             width: 90%;
-            background: rgb(129, 129, 129);
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             gap: 20px;
             position: relative;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(50px) scale(1.05);
             transition: all 0.6s ease-in-out;
+        }
+        .timeline-event:hover{
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
         }
 
         .timeline-event.visible {
@@ -283,6 +287,12 @@
             });
         };
 
+        
+
+        filterSelect.addEventListener('change', (e) => {
+            filterEvents(e.target.value);
+        });
+
         sortToggle.addEventListener('click', () => {
             const order = sortToggle.dataset.order;
             const newOrder = order === 'asc' ? 'desc' : 'asc';
@@ -290,11 +300,6 @@
             sortToggle.textContent = `Сортировать: ${newOrder === 'asc' ? 'от старых к новым' : 'от новых к старым'}`;
             sortEvents(newOrder);
         });
-
-        filterSelect.addEventListener('change', (e) => {
-            filterEvents(e.target.value);
-        });
-
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
