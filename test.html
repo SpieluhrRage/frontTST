@@ -78,31 +78,71 @@
                     border-radius: 8px;
                     background: #333;
                 }
+                #quiz-form{
+                    display: grid;
+                    grid-template-columns: repeat(2, auto);
+                    grid-template-rows: repeat(3, auto);
+                    grid-template-areas: 
+                        "q1 q2"
+                        "q3 ."
+                        "btn btn";
+                }
+                .hd{
+                    grid-area: hd;
+                }
+                .btn{
+                    grid-area: btn;
+                }
         
                 .quiz-question {
                     margin-bottom: 20px;
                 }
+                .quiz-question q1{
+                    grid-area: q1;
+                }
+                .quiz-question q2{
+                    grid-area: q2;
+                }
+                .quiz-question q3{
+                    grid-area: q3;
+                }
         
                 .quiz-options {
+                    display:grid;
+                    grid-template-rows: repeat(auto, auto);
                     list-style: none;
                     padding: 0;
                 }
         
                 .quiz-options li {
+                    display: grid;
+                    grid-template-columns: 3fr 1fr;
                     margin: 10px 0;
                 }
         
-                .quiz-options input {
-                    margin-right: 10px;
-                }
+                
         
                 .quiz-result {
                     display: none;
+                    grid-area: rs;
                     padding: 10px;
                     margin-top: 20px;
                     border-radius: 5px;
                     background: #d4edda;
                     color: #155724;
+                }
+
+                @media(max-width: 590px){
+                    #quiz-form{
+                    display: grid;
+                    grid-template-columns: repeat(1, auto);
+                    grid-template-rows: repeat(4, auto);
+                    grid-template-areas: 
+                        "q1"
+                        "q2"
+                        "q3"
+                        "btn";
+                }
                 }
             </style>
         
@@ -110,32 +150,32 @@
                 <div id="map"></div>
             
                 <div class="quiz-container">
-                    <h2>Найди свой фестиваль</h2>
+                    <h2 class="hd">Найди свой фестиваль</h2>
                     <form id="quiz-form">
-                        <div class="quiz-question">
+                        <div class="quiz-question q1">
                             <p>1. Какие жанры фильмов вы предпочитаете?</p>
                             <ul class="quiz-options">
-                                <li><label><input type="radio" name="genre" value="art"> Авторское кино</label></li>
-                                <li><label><input type="radio" name="genre" value="blockbuster"> Блокбастеры</label></li>
-                                <li><label><input type="radio" name="genre" value="indie"> Независимое кино</label></li>
+                                <li><label>Авторское кино</label><input type="radio" name="genre" value="art"> </li>
+                                <li><label>Блокбастеры</label><input type="radio" name="genre" value="blockbuster"></li>
+                                <li><label>Независимое кино</label><input type="radio" name="genre" value="indie"> </li>
                             </ul>
                         </div>
-                        <div class="quiz-question">
+                        <div class="quiz-question q2">
                             <p>2. Вас больше привлекает:</p>
                             <ul class="quiz-options">
-                                <li><label><input type="radio" name="location" value="city"> Шумный мегаполис</label></li>
-                                <li><label><input type="radio" name="location" value="nature"> Уютный городок</label></li>
+                                <li><label> Шумный мегаполис</label><input type="radio" name="location" value="city"></li>
+                                <li><label> Уютный городок</label><input type="radio" name="location" value="nature"></li>
                             </ul>
                         </div>
-                        <div class="quiz-question">
+                        <div class="quiz-question q3">
                             <p>3. Какие активности вам интересны?</p>
                             <ul class="quiz-options">
-                                <li><label><input type="radio" name="activities" value="masterclass"> Лекции и мастер-классы</label></li>
-                                <li><label><input type="radio" name="activities" value="screening"> Кинопоказы</label></li>
-                                <li><label><input type="radio" name="activities" value="networking"> Общение и знакомства</label></li>
+                                <li><label> Лекции и мастер-классы</label><input type="radio" name="activities" value="masterclass"></li>
+                                <li><label> Кинопоказы</label><input type="radio" name="activities" value="screening"></li>
+                                <li><label> Общение и знакомства</label><input type="radio" name="activities" value="networking"></li>
                             </ul>
                         </div>
-                        <button type="submit">Узнать</button>
+                        <button class="btn" type="submit">Узнать</button>
                     </form>
                     <div class="quiz-result" id="quiz-result">
                         <p></p>
