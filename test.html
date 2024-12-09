@@ -87,6 +87,18 @@
                         "q3 ."
                         "btn btn";
                 }
+                @media(max-width: 590px){
+                    #quiz-form{
+                    display: grid;
+                    grid-template-columns: repeat(1, auto);
+                    grid-template-rows: repeat(4, auto);
+                    grid-template-areas: 
+                        "q1"
+                        "q2"
+                        "q3"
+                        "btn";
+                }
+                }
                 .hd{
                     grid-area: hd;
                 }
@@ -132,18 +144,7 @@
                     color: #155724;
                 }
 
-                @media(max-width: 590px){
-                    #quiz-form{
-                    display: grid;
-                    grid-template-columns: repeat(1, auto);
-                    grid-template-rows: repeat(4, auto);
-                    grid-template-areas: 
-                        "q1"
-                        "q2"
-                        "q3"
-                        "btn";
-                }
-                }
+                
             </style>
         
             <main>
